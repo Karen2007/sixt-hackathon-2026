@@ -20,7 +20,7 @@
   \large Team SK\textsuperscript{2} --- SIXT + TUM Hackathon 2026 --- Project 5}
 \author{Karen Khudaverdian, Said Sarahna, Kyrylo Liashenko\\
   \small \todo{Actual affiliations and contact email}}
-\date{\todo{Manuscript date}}
+\date{13 November 2026}
 
 \begin{document}
 \maketitle
@@ -34,7 +34,7 @@ pandas for the company-analytics questions, an exact mixed-integer programme
 (CBC) for the fulfilment optimisation questions, and an event-by-event simulator
 for the flow questions. The model never writes an answer. A validator checks
 each routing against the answer type the question asks for, allows one retry,
-and flags anything it cannot route. On the 150 company questions, the model's first-attempt routing selected the correct function for 149 questions. The validator flagged the remaining question, which is answered by hand routing, and all 150 final answers match the hand-routed answers.
+and flags anything it cannot route. On the 150 company questions, the model's first-attempt routing selected the correct function for all 150 questions. Exact matches, including argument format, were 146 of 150. All 150 final answers match the hand-routed answers, and no question needed a retry or a flag.
 All 15 optimisation cases solve to proven optimality, and every plan is re-costed
 and checked independently. Official accuracy was not yet available when this
 report was written. The main limitation is that correctness rests on internal
@@ -133,7 +133,7 @@ Our checks are internal. Organiser feedback was not yet available.
     practice examples are reproduced exactly.
   \item \textbf{Independent SQL.} A separate DuckDB SQL implementation agrees with
     the pandas implementation on the 13 company questions checked.
-  \item \textbf{Routing.} On the 150 company questions, the model's first attempt chose the correct function for 149 (99.3\%). Exact matches, including argument format, were 145 of 150. The four other mismatches differ only in format, and the adapters correct them. The one wrong choice was a count question routed to a name lookup. The validator rejected it, the retry was also rejected, and the question is flagged and answered by hand routing. The final answers for all 150 questions match the hand-routed answers.
+  \item \textbf{Routing.} On the 150 company questions, the model's first attempt chose the correct function for all 150 (100\%). Exact matches, including argument format, were 146 of 150; the four other mismatches differ only in format, and the adapters correct them. No question needed a retry or a flag, and the final answers for all 150 questions match the hand-routed answers.
 \item \textbf{Optimisation.} All 15 cases solve to proven optimality. Each plan
     is re-costed independently and checked against stock, dispatch-capacity and
     supplier-limit constraints. The check passed for every case.
@@ -154,8 +154,8 @@ Measure & Public stage & Final stage \\
 \midrule
 Official correct answers (out of 200) & not available & not released \\
 Official accuracy (\%) & not available & not released \\
-Elapsed model time (301 calls) & 873 s total, about 3 s per call & not released \\
-Model tokens used (prompt / completion) & 423,470 / 5,013 & not released \\
+Elapsed model time (450 Stage 1 calls) & 1,592 s total, about 3.5 s per call & not released \\
+Model tokens used (prompt / completion) & 801,831 / 7,491 & not released \\
 Measured model cost & no API cost; local compute only & not released \\
 \bottomrule
 \end{tabularx}
@@ -189,8 +189,7 @@ correct routings on the first attempt.
     quantisation (quantisation does not change the parameter count),
     temperature 0, seed 0, maximum 120 output tokens. The prompt lists the
     function catalogue and three examples, using countries and regions that do not appear in the question set.
-  \item[Usage and evidence] 301 logged calls (150 routing-evaluation calls and
-    pipeline run with one retry), with prompt and output tokens and timings. The
+  \item[Usage and evidence] 450 logged Stage 1 calls (the routing evaluation and two pipeline runs), with prompt and output tokens and timings. The
     full log holds question text, so it is kept private. Evidence files in the
     \texttt{evidence/} folder: the SHA-256 of the exact model file used, the
     repository metadata giving the parameter count, a sanitised per-call usage log
