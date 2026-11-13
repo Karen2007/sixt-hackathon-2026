@@ -42,7 +42,8 @@ def main():
         "first_call": str(df.time.min()), "last_call": str(df.time.max()),
         "note": "Question text and raw model output are not included; the full log stays private because it contains organiser question text. "
                 "The log starts with the clean-prompt evaluation; the earlier runs are in archived log files, not counted here. "
-                "The P group includes both the Stage 1 evaluation and the Stage 1 pipeline run.",
+                "The P group includes both the Stage 1 evaluation and the Stage 1 pipeline run. The S group includes two synthetic runs: the first used data values that are not in the data (500 calls, superseded); the second is the corrected set reported in SUBMISSION.md. "
+                "The F group includes a Stage 2 run that stopped on an error and a rerun with the stricter validator; Stage 2 is not part of the Stage 1 submission.",
     }
     (EVID / "usage_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps(by_run, indent=2))

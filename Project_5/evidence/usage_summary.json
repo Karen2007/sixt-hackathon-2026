@@ -3,20 +3,35 @@
   "model_repo_revision": "13fb94bfda8c8cf22497dc57b78f391a9acb426a",
   "model_file_sha256": "509287f78cb4d4cf6b3843734733b914b2c158e43e22a7f4bf5e963800894d3c",
   "base_model_total_parameters": 7615616512,
-  "runtime": "llama-cpp-python 0.3.16, CPU, 16 threads, temperature 0, seed 0",
+  "runtime": "llama-cpp-python 0.3.16, CPU, 16 threads, temperature 0, seed 0, grammar-constrained function names",
   "hardware": "16 CPU cores, 30 GB RAM, no GPU, Linux",
-  "total_calls": 301,
-  "routing_evaluation_calls": 150,
-  "pipeline_calls": 151,
-  "prompt_tokens_total": 423470,
-  "completion_tokens_total": 5013,
-  "model_seconds_total": 873,
-  "first_call": "2026-11-13T11:25:10",
-  "last_call": "2026-11-13T11:39:30",
-  "routing_first_attempt_correct_function": "149 of 150",
-  "pipeline_model_routed": 149,
-  "pipeline_flagged_to_hand_routing": 1,
-  "pipeline_final_answers_matching_hand_routing": "150 of 150",
-  "note": "Question text and raw model output are not included; the complete log is kept privately because it contains organiser question text.",
-  "routing_first_attempt_exact_match_before_adapters": "145 of 150"
+  "total_calls": 1633,
+  "totals": {
+    "prompt_tokens": 2888722,
+    "completion_tokens": 27379,
+    "model_seconds": 5258
+  },
+  "by_run": {
+    "stage1_company_questions": {
+      "calls": 450,
+      "prompt_tokens": 801831,
+      "completion_tokens": 7491,
+      "model_seconds": 1592
+    },
+    "stage2_company_questions": {
+      "calls": 183,
+      "prompt_tokens": 327614,
+      "completion_tokens": 3127,
+      "model_seconds": 746
+    },
+    "synthetic_routing_test": {
+      "calls": 1000,
+      "prompt_tokens": 1759277,
+      "completion_tokens": 16761,
+      "model_seconds": 2920
+    }
+  },
+  "first_call": "2026-11-13T14:27:30",
+  "last_call": "2026-11-13T15:57:08",
+  "note": "Question text and raw model output are not included; the full log stays private because it contains organiser question text. The log starts with the clean-prompt evaluation; the earlier runs are in archived log files, not counted here. The P group includes both the Stage 1 evaluation and the Stage 1 pipeline run. The S group includes two synthetic runs: the first used data values that are not in the data (500 calls, superseded); the second is the corrected set reported in SUBMISSION.md. The F group includes a Stage 2 run that stopped on an error and a rerun with the stricter validator; Stage 2 is not part of the Stage 1 submission."
 }

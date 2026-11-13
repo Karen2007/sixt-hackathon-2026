@@ -40,7 +40,7 @@ All results are internal checks. No reference answers were available to us for s
 - **Practice examples (E001-E010):** 10 of 10 match the provided answers.
 - **Demo examples (DEMO001-003):** all 3 match `examples/demo_answers.csv`.
 - **Company questions:** 150 answered. The organisers' structure checker reports FORMAT OK. A separate SQL implementation agrees with the pandas implementation on 13 of 13 spot-checked questions.
-- **Model-routed run:** PIPELINE_LINE
+- **Model-routed run:** all 150 questions routed by the model on the first attempt (no retries, no flags). All 150 final answers match the hand-routed answers, and all 150 pass the value checks.
 - **Optimiser:** all 15 cases solve to proven optimality, and every plan passes an independent re-costing and constraint check.
 - **Flow simulator:** the conservation identity holds in all 20 runs (10 baseline, 10 what-if).
 - **Whole submission:** `public_answers.csv` has 200 rows, all filled, and passes the organisers' structure checker.
