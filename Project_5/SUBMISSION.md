@@ -12,7 +12,7 @@
 
 - **Public (Stage 1) answer file:** `Project_5/public_answers.csv`, 200 rows, SHA-256 `dea0ef9fa52fb624aa1de638ef07d18cc2139a75a44296d4cd0e3aa07b9a19c5`.
 - **Final (Stage 2) answer file:** `Project_5/final_answers.csv`, not yet produced (final data not released).
-- **Code revision used for the calculations:** to be filled with the commit ID once the code is committed. The organisers record the locked commit IDs themselves at each cutoff.
+- **Code revision used for the calculations:** 6190da5 (the code as it stood when the Stage 1 answers were calculated). The organisers record the locked commit IDs themselves at each cutoff.
 
 ## Problem and approach
 
@@ -77,3 +77,6 @@ Produced: `submission/slides.pdf` (five slides, within the limit of five). Sourc
 - Write the method report in the arXiv template, and agree on authorship and timing with the organisers before uploading.
 - With more time: add an automated test that the router agrees with the hand routing on every question, and extend the validator to check value ranges as well as types.
 - Use in practice: a question-to-answer workflow that a business user can run on their own data, with every number traceable to a checked calculation.
+
+**Note:** the report, PROJECT_BREAKDOWN.md, the evidence README, the visualiser and the slides were written before the final routing run. Where they differ, the figures
+  in this file are the ones to use.
