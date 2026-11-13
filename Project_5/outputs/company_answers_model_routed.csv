@@ -1,0 +1,151 @@
+question_id,answer,source,function,args,reason,matches_current_answer,value_check_ok,value_check_reason
+P001,63.16,model,late_ticket_breach_pct,['Southern Europe'],ok,True,True,ok
+P002,22.57,model,carrier_wdelay,['DHL'],ok,True,True,ok
+P003,UPS,model,top_carrier_by_wdelay,['Central Europe'],ok,True,True,ok
+P004,40.05,model,margin_rate_category,['Phone'],ok,True,True,ok
+P005,198233.11,model,rev_country_period,"['Greece', 'Q2']",ok,True,True,ok
+P006,2.98,model,refund_rate_category_period,"['Accessory', 'Q3']",ok,True,True,ok
+P007,-21.45,model,growth_country,['Italy'],ok,True,True,ok
+P008,true,model,growth_bool_region,"['Central Europe', 10]",ok,True,True,ok
+P009,Noah,model,at_risk_top_manager,[],ok,True,True,ok
+P010,gmail.com,model,top_email_domain,[],ok,True,True,ok
+P011,7.41,model,growth_country,['Austria'],ok,True,True,ok
+P012,Accessory,model,top_margin_category,['Q2'],ok,True,True,ok
+P013,257119.33,model,rev_country_period,"['Germany', 'Q3']",ok,True,True,ok
+P014,13.34,model,growth_country,['Netherlands'],ok,True,True,ok
+P015,70.86,model,region_target_pct,"['Western Europe', 'Q1']",ok,True,True,ok
+P016,21,model,accounts_late_breach,['Education'],ok,True,True,ok
+P017,214681.58,model,rev_region_month,"['Central Europe', '2024-05']",ok,True,True,ok
+P018,32,model,accounts_late_breach,['Health'],ok,True,True,ok
+P019,false,model,growth_bool_region,"['Southern Europe', 15]",ok,True,True,ok
+P020,87.50,model,late_ticket_breach_pct,['Central Europe'],ok,True,True,ok
+P021,86280.28,model,p90_account,['Public Sector'],ok,True,True,ok
+P022,1.37,model,zscore_region_month,"['Central Europe', '2024-10']",ok,True,True,ok
+P023,true,model,growth_bool_region,"['Central Europe', 5]",ok,True,True,ok
+P024,delivery,model,issue_mode_high_value,['Mid-Market'],ok,True,True,ok
+P025,19,model,accounts_late_breach,['Retail'],ok,True,True,ok
+P026,0.09,model,zscore_region_month,"['Western Europe', '2024-10']",ok,True,True,ok
+P027,Central Europe,model,top_zscore_region,['2024-10'],ok,True,True,ok
+P028,45.03,model,cohort_retention,"['2024-02', 90]",ok,True,True,ok
+P029,26.13,model,carrier_wdelay,['GLS'],ok,True,True,ok
+P030,Laptop,model,top_category_segment,"['SMB', 'Q2']",ok,True,True,ok
+P031,397094.30,model,rev_region_month,"['Western Europe', '2024-06']",ok,True,True,ok
+P032,5.47,model,top_account_category_share,"['Enterprise', 'Accessory']",ok,True,True,ok
+P033,0.18,model,refund_discount_correlation,[],ok,True,True,ok
+P034,-4.58,model,growth_country,['France'],ok,True,True,ok
+P035,11.01,model,web_direct_conversion,[],ok,True,True,ok
+P036,PartnerBoost,model,campaign_top_attributed,['Paid Search'],ok,True,True,ok
+P037,Phone,model,top_refund_rate_category_country,['Spain'],ok,True,True,ok
+P038,7.89,model,refund_rate_category_period,"['Software', 'Q2']",ok,True,True,ok
+P039,170953.42,model,rev_region_month,"['Central Europe', '2024-01']",ok,True,True,ok
+P040,220657.55,model,rev_country_period,"['Greece', 'Q3']",ok,True,True,ok
+P041,false,model,target_met,"['Greece', '2024-07']",ok,True,True,ok
+P042,true,model,growth_bool_region,"['Western Europe', 10]",ok,True,True,ok
+P043,15,model,atrisk_count_country,['Spain'],ok,True,True,ok
+P044,7.67,model,growth_country,['Poland'],ok,True,True,ok
+P045,Laptop,model,italy_pre_ticket_top_category,[],ok,True,True,ok
+P046,10,model,atrisk_count_country,['Poland'],ok,True,True,ok
+P047,0.47,model,zscore_region_month,"['Western Europe', '2024-11']",ok,True,True,ok
+P048,360596.15,model,rev_region_month,"['Western Europe', '2024-01']",ok,True,True,ok
+P049,3242.30,model,median_order_net_segment,['Mid-Market'],ok,True,True,ok
+P050,8.92,model,refund_rate_category_period,"['Software', 'Q1']",ok,True,True,ok
+P051,TrialNudge,model,campaign_top_attributed,['Events'],ok,True,True,ok
+P052,100,model,unique_real_customers_country,['Austria'],ok,True,True,ok
+P053,750531.87,model,campaign_ticket_revenue,"['SpringLaunch', ['returns']]",ok,True,True,ok
+P054,99468.72,model,p90_account,['Mid-Market'],ok,True,True,ok
+P055,GLS,model,top_carrier_by_wdelay,['Southern Europe'],ok,True,True,ok
+P056,Laptop;Phone;Tablet,model,top3_categories_region,"['Southern Europe', 'Q1']",ok,True,True,ok
+P057,4.87,model,top_account_category_share,"['Mid-Market', 'Appliance']",ok,True,True,ok
+P058,Software,model,top_refund_rate_category_country,['Italy'],ok,True,True,ok
+P059,2024-01-01,model,earliest_order_by_channel,['Referral'],ok,True,True,ok
+P060,126.59,model,region_target_pct,"['Central Europe', 'Q4']",ok,True,True,ok
+P061,Southern Europe,model,top_zscore_region,['2024-11'],ok,True,True,ok
+P062,true,model,growth_bool_region,"['Central Europe', 15]",ok,True,True,ok
+P063,135,model,unique_real_customers_country,['Spain'],ok,True,True,ok
+P064,64.72,model,region_target_pct,"['Western Europe', 'Q3']",ok,True,True,ok
+P065,83.26,model,region_target_pct,"['Southern Europe', 'Q2']",ok,True,True,ok
+P066,Software,model,top_margin_category,['Q3'],ok,True,True,ok
+P067,-10.95,model,growth_country,['Greece'],ok,True,True,ok
+P068,Accessory,model,top_refund_rate_category_country,['Portugal'],ok,True,True,ok
+P069,FedEx,model,top_carrier_by_wdelay,['Western Europe'],ok,True,True,ok
+P070,12.74,model,growth_country,['Portugal'],ok,True,True,ok
+P071,Orion Workstation,model,top_product_region_month,"['Central Europe', '2024-02']",ok,True,True,ok
+P072,75.59,model,region_target_pct,"['Western Europe', 'Q4']",ok,True,True,ok
+P073,SpringLaunch,model,campaign_top_attributed,['Partner'],ok,True,True,ok
+P074,9.67,model,top_account_category_share,"['Public Sector', 'Accessory']",ok,True,True,ok
+P075,45.07,model,margin_rate_category,['Software'],ok,True,True,ok
+P076,-2.19,model,zscore_region_month,"['Southern Europe', '2024-12']",ok,True,True,ok
+P077,delivery,model,issue_mode_high_value,['Enterprise'],ok,True,True,ok
+P078,2024-01-01,model,earliest_order_by_channel,['Organic'],ok,True,True,ok
+P079,3.64,model,trial_conversion,['Referral'],ok,True,True,ok
+P080,10.26,model,cohort_retention,"['2024-06', 30]",ok,True,True,ok
+P081,64.91,model,region_target_pct,"['Western Europe', 'Q2']",ok,True,True,ok
+P082,17.93,model,carrier_wdelay,['PostNL'],ok,True,True,ok
+P083,48.95,model,high_priority_breach_pct,[],ok,True,True,ok
+P084,72120.04,model,p90_account,['SMB'],ok,True,True,ok
+P085,22,model,accounts_late_breach,['Finance'],ok,True,True,ok
+P086,40.74,model,late_ticket_breach_pct,['Western Europe'],ok,True,True,ok
+P087,36.59,model,carrier_wdelay,['FedEx'],ok,True,True,ok
+P088,true,model,target_met,"['Germany', '2024-08']",ok,True,True,ok
+P089,122.32,model,region_target_pct,"['Central Europe', 'Q2']",ok,True,True,ok
+P090,23,model,accounts_late_breach,['Technology'],ok,True,True,ok
+P091,5.95,model,trial_conversion,['Email'],ok,True,True,ok
+P092,true,model,growth_bool_region,"['Western Europe', 5]",ok,True,True,ok
+P093,21,model,accounts_late_breach,['Manufacturing'],ok,True,True,ok
+P094,Software,model,top_refund_rate_category_country,['Greece'],ok,True,True,ok
+P095,false,model,target_met,"['Italy', '2024-03']",ok,True,True,ok
+P096,922459.23,model,campaign_ticket_revenue,"['TrialNudge', ['billing']]",ok,True,True,ok
+P097,794510.82,model,campaign_ticket_revenue,"['TrialNudge', ['returns']]",ok,True,True,ok
+P098,Laptop,model,top_category_segment,"['Public Sector', 'Q4']",ok,True,True,ok
+P099,Aster Laptop Air,model,top_product_region_month,"['Southern Europe', '2024-12']",ok,True,True,ok
+P100,200,model,active_count_region,['Western Europe'],ok,True,True,ok
+P101,1701398.41,model,commitment_country,['Germany'],ok,True,True,ok
+P102,1466014.15,model,commitment_country,['France'],ok,True,True,ok
+P103,1803248.78,model,commitment_country,['Italy'],ok,True,True,ok
+P104,1960265.26,model,commitment_country,['Spain'],ok,True,True,ok
+P105,1502,model,outstanding_units,['North'],ok,True,True,ok
+P106,1413,model,outstanding_units,['South'],ok,True,True,ok
+P107,1772,model,outstanding_units,['East'],ok,True,True,ok
+P108,1382,model,outstanding_units,['West'],ok,True,True,ok
+P109,47.20,model,ontime_pct,['Germany'],ok,True,True,ok
+P110,43.98,model,ontime_pct,['France'],ok,True,True,ok
+P111,46.15,model,ontime_pct,['Italy'],ok,True,True,ok
+P112,46.41,model,ontime_pct,['Spain'],ok,True,True,ok
+P113,8.35,model,rejection_pct,['Germany'],ok,True,True,ok
+P114,7.86,model,rejection_pct,['France'],ok,True,True,ok
+P115,8.91,model,rejection_pct,['Italy'],ok,True,True,ok
+P116,8.53,model,rejection_pct,['Spain'],ok,True,True,ok
+P117,418274.38,model,ppv,['Hardware'],ok,True,True,ok
+P118,21107.12,model,ppv,['Cloud'],ok,True,True,ok
+P119,58174.00,model,ppv,['Professional Services'],ok,True,True,ok
+P120,497555.49,model,ppv,[None],ok,True,True,ok
+P121,1171344.66,model,receipt_cost,['North'],ok,True,True,ok
+P122,1031313.79,model,receipt_cost,['South'],ok,True,True,ok
+P123,834836.54,model,receipt_cost,['East'],ok,True,True,ok
+P124,896752.47,model,receipt_cost,['West'],ok,True,True,ok
+P125,Germany Supply 1,model,worst_supplier,['Germany'],ok,True,True,ok
+P126,France Supply 3,model,worst_supplier,['France'],ok,True,True,ok
+P127,Italy Supply 2,model,worst_supplier,['Italy'],ok,True,True,ok
+P128,Spain Supply 2,model,worst_supplier,['Spain'],ok,True,True,ok
+P129,11483,model,recon_stock,['North'],ok,True,True,ok
+P130,13604,model,recon_stock,['South'],ok,True,True,ok
+P131,10670,model,recon_stock,['East'],ok,True,True,ok
+P132,12177,model,recon_stock,['West'],ok,True,True,ok
+P133,2860495.11,model,stock_value,['North'],ok,True,True,ok
+P134,3559007.06,model,stock_value,['South'],ok,True,True,ok
+P135,3154048.69,model,stock_value,['East'],ok,True,True,ok
+P136,2944386.39,model,stock_value,['West'],ok,True,True,ok
+P137,19,model,below_reorder_count,['North'],ok,True,True,ok
+P138,19,model,below_reorder_count,['South'],ok,True,True,ok
+P139,28,model,below_reorder_count,['East'],ok,True,True,ok
+P140,20,model,below_reorder_count,['West'],ok,True,True,ok
+P141,4862,model,reorder_units,['North'],ok,True,True,ok
+P142,4305,model,reorder_units,['South'],ok,True,True,ok
+P143,7575,model,reorder_units,['East'],ok,True,True,ok
+P144,4855,model,reorder_units,['West'],ok,True,True,ok
+P145,47.22,model,restockable_pct_reason,['billing_error'],ok,True,True,ok
+P146,48.24,model,restockable_pct_reason,['customer_return'],ok,True,True,ok
+P147,52.27,model,restockable_pct_reason,['defect'],ok,True,True,ok
+P148,44.93,model,restockable_pct_reason,['late_delivery'],ok,True,True,ok
+P149,11939.08,model,recovery_category,['Laptop'],ok,True,True,ok
+P150,5274.18,model,recovery_category,['Phone'],ok,True,True,ok

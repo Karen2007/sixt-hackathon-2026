@@ -1,0 +1,17 @@
+# Project 5 (SK²) pinned requirements. Python 3.14.
+# Install: bash setup.sh   (creates .venv and runs the tests)
+#
+# Calculation and checks
+pandas==2.3.3
+numpy==2.5.4
+duckdb==1.4.5          # independent SQL cross-check (src/crosscheck_sql.py)
+PuLP==2.9.0            # optimiser; bundles the CBC solver (src/optimiser.py)
+pytest==8.4.2
+
+# Local language model (router only; see src/llm_router.py)
+# Builds from source. Needs a C/C++ compiler and cmake on the PATH; pip fetches cmake
+# automatically during the build. The build used the flag below, which tunes the
+# binary for the local CPU:
+#   CMAKE_ARGS="-DGGML_NATIVE=on" pip install llama-cpp-python==0.3.16
+# The model file is not included; see SUBMISSION.md for the download command.
+llama-cpp-python==0.3.16

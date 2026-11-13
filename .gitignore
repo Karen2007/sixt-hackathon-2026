@@ -17,3 +17,9 @@ quickstart_answers.csv
 Project_1/preds.jsonl
 Project_4/plans/baseline.csv
 Project_6/starter/predictions.csv
+
+Project_5/data/
+
+# Organiser packages: held locally until the stage is authorised; never publish
+Project_5/problem7_student_start/
+Project_5/problem7_student_final/

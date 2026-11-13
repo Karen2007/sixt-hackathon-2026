@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project 5 pipeline visualiser (Team SK²)</title>
+<style>
+  :root { --bg:#f5f7f9; --panel:#ffffff; --ink:#1b2a41; --muted:#5b6672; --teal:#0f766e; --teal-soft:#d7efeb;
+          --amber:#b45309; --amber-soft:#fde9c8; --red:#b91c1c; --red-soft:#fbdede; --line:#d9e0e6; --code:#f0f3f6; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#101820; --panel:#17222d; --ink:#e8eef3; --muted:#9fb0bf; --teal:#5fd3c4;
+      --teal-soft:#15403b; --amber:#f5b860; --amber-soft:#4a3413; --red:#f08a8a; --red-soft:#4a2020; --line:#2c3b49; --code:#0f1820; }
+  }
+  :root[data-theme="dark"] { --bg:#101820; --panel:#17222d; --ink:#e8eef3; --muted:#9fb0bf; --teal:#5fd3c4;
+      --teal-soft:#15403b; --amber:#f5b860; --amber-soft:#4a3413; --red:#f08a8a; --red-soft:#4a2020; --line:#2c3b49; --code:#0f1820; }
+  :root { color-scheme: light; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; } }
+  :root[data-theme="dark"] { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { padding:20px 24px 8px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  header p { margin:0; color:var(--muted); max-width:900px; }
+  .wrap { padding:12px 24px 40px; display:grid; gap:16px; grid-template-columns: 260px 1fr; }
+  @media (max-width: 800px) { .wrap { grid-template-columns: 1fr; } }
+  nav { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:10px; align-self:start; }
+  nav button { display:block; width:100%; text-align:left; background:none; border:0; color:var(--ink); padding:8px 10px;
+               border-radius:7px; cursor:pointer; font:inherit; }
+  nav button:hover { background:var(--code); }
+  nav button[aria-current="step"] { background:var(--teal-soft); color:var(--ink); font-weight:600; }
+  nav .n { display:inline-block; width:22px; color:var(--teal); font-weight:700; }
+  main { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px; min-height:460px; min-width:0; }
+  .controls { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:14px; }
+  .controls button { background:var(--teal); color:#fff; border:0; border-radius:7px; padding:7px 14px; cursor:pointer; font:inherit; }
+  .controls button.ghost { background:var(--code); color:var(--ink); border:1px solid var(--line); }
+  .controls button:disabled { opacity:.45; cursor:default; }
+  .controls label { color:var(--muted); font-size:13px; margin-left:auto; }
+  h2 { font-size:19px; margin:4px 0 6px; }
+  .lede { color:var(--muted); margin:0 0 14px; }
+  .box { border:1px solid var(--line); border-radius:9px; padding:12px 14px; background:var(--code); margin:10px 0; }
+  .box.ok { border-color:var(--teal); background:var(--teal-soft); }
+  .box.warn { border-color:var(--amber); background:var(--amber-soft); }
+  .box.bad { border-color:var(--red); background:var(--red-soft); }
+  pre { margin:0; font:13.5px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space:pre-wrap; word-break:break-word; }
+  .flow { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:8px 0 12px; }
+  .node { padding:6px 10px; border:1px solid var(--line); border-radius:8px; color:var(--muted); transition:all .4s; }
+  .node.on { border-color:var(--teal); color:var(--ink); background:var(--teal-soft); font-weight:600; }
+  .arrow { color:var(--muted); }
+  table { border-collapse:collapse; width:100%; margin:6px 0; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:6px 8px; text-align:left; transition: background .4s, opacity .4s; }
+  th { background:var(--code); }
+  tr.out td { opacity:.35; text-decoration: line-through; }
+  tr.hit td { background:var(--teal-soft); }
+  tr.bad td { background:var(--red-soft); }
+  .tick { font-weight:700; }
+  .tick.yes { color:var(--teal); } .tick.no { color:var(--red); }
+  .checks div { padding:4px 0; opacity:0; transform:translateY(4px); transition:all .4s; }
+  .checks div.show { opacity:1; transform:none; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(26px, 1fr)); gap:4px; margin:10px 0; }
+  .cell { height:26px; border-radius:4px; background:var(--line); transition: background .3s; position:relative; }
+  .cell.model { background:#2f9e8f; } .cell.retry { background:#8fd3c8; } .cell.flagged { background:#e09f3e; }
+  .legend { display:flex; gap:14px; flex-wrap:wrap; font-size:13px; color:var(--muted); margin:8px 0; }
+  .legend i { display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:5px; vertical-align:-1px; }
+  .stat { display:inline-block; margin:4px 16px 4px 0; }
+  .stat b { font-size:20px; }
+  .muted { color:var(--muted); font-size:13px; }
+  .fade { animation: fade .5s ease; }
+  @keyframes fade { from { opacity:0; transform:translateY(4px);} to { opacity:1; transform:none;} }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation:none !important; transition:none !important; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Project 5 pipeline visualiser · Team SK²</h1>
+  <p>Step through how one answer is produced, from the question to the answer file. The walkthrough uses the public toy example, which is safe to show. The grid at the end shows the real results for all 150 company questions, using only question IDs and outcomes.</p>
+</header>
+
+<div class="wrap">
+  <nav id="nav" aria-label="Steps"></nav>
+
+  <main>
+    <div class="controls">
+      <button id="prev" class="ghost">◀ Back</button>
+      <button id="play">▶ Play</button>
+      <button id="next">Next ▶</button>
+      <label>Speed
+        <input id="speed" type="range" min="2" max="8" value="4" step="1" aria-label="Seconds per step">
+      </label>
+    </div>
+    <div id="stage" class="fade" aria-live="polite"></div>
+  </main>
+</div>
+
+<script>
+const ROUTES = [{"id": "P001", "source": "model", "first": true, "same": true}, {"id": "P002", "source": "model", "first": true, "same": true}, {"id": "P003", "source": "model", "first": true, "same": true}, {"id": "P004", "source": "model", "first": true, "same": true}, {"id": "P005", "source": "model", "first": true, "same": true}, {"id": "P006", "source": "model", "first": true, "same": true}, {"id": "P007", "source": "model", "first": true, "same": true}, {"id": "P008", "source": "model", "first": true, "same": true}, {"id": "P009", "source": "model", "first": true, "same": true}, {"id": "P010", "source": "model", "first": true, "same": true}, {"id": "P011", "source": "model", "first": true, "same": true}, {"id": "P012", "source": "model", "first": true, "same": true}, {"id": "P013", "source": "model", "first": true, "same": true}, {"id": "P014", "source": "model", "first": true, "same": true}, {"id": "P015", "source": "model", "first": true, "same": true}, {"id": "P016", "source": "model", "first": true, "same": true}, {"id": "P017", "source": "model", "first": true, "same": true}, {"id": "P018", "source": "model", "first": true, "same": true}, {"id": "P019", "source": "model", "first": true, "same": true}, {"id": "P020", "source": "model", "first": true, "same": true}, {"id": "P021", "source": "model", "first": true, "same": true}, {"id": "P022", "source": "model", "first": true, "same": true}, {"id": "P023", "source": "model", "first": true, "same": true}, {"id": "P024", "source": "model", "first": true, "same": true}, {"id": "P025", "source": "model", "first": true, "same": true}, {"id": "P026", "source": "model", "first": true, "same": true}, {"id": "P027", "source": "model", "first": true, "same": true}, {"id": "P028", "source": "model", "first": true, "same": true}, {"id": "P029", "source": "model", "first": true, "same": true}, {"id": "P030", "source": "model", "first": true, "same": true}, {"id": "P031", "source": "model", "first": true, "same": true}, {"id": "P032", "source": "model", "first": true, "same": true}, {"id": "P033", "source": "model", "first": true, "same": true}, {"id": "P034", "source": "model", "first": true, "same": true}, {"id": "P035", "source": "model", "first": true, "same": true}, {"id": "P036", "source": "model", "first": true, "same": true}, {"id": "P037", "source": "model", "first": true, "same": true}, {"id": "P038", "source": "model", "first": true, "same": true}, {"id": "P039", "source": "model", "first": true, "same": true}, {"id": "P040", "source": "model", "first": true, "same": true}, {"id": "P041", "source": "model", "first": true, "same": true}, {"id": "P042", "source": "model", "first": true, "same": true}, {"id": "P043", "source": "model", "first": true, "same": true}, {"id": "P044", "source": "model", "first": true, "same": true}, {"id": "P045", "source": "model", "first": true, "same": true}, {"id": "P046", "source": "flagged", "first": false, "same": true}, {"id": "P047", "source": "model", "first": true, "same": true}, {"id": "P048", "source": "model", "first": true, "same": true}, {"id": "P049", "source": "model", "first": true, "same": true}, {"id": "P050", "source": "model", "first": true, "same": true}, {"id": "P051", "source": "model", "first": true, "same": true}, {"id": "P052", "source": "model", "first": true, "same": true}, {"id": "P053", "source": "model", "first": true, "same": true}, {"id": "P054", "source": "model", "first": true, "same": true}, {"id": "P055", "source": "model", "first": true, "same": true}, {"id": "P056", "source": "model", "first": true, "same": true}, {"id": "P057", "source": "model", "first": true, "same": true}, {"id": "P058", "source": "model", "first": true, "same": true}, {"id": "P059", "source": "model", "first": true, "same": true}, {"id": "P060", "source": "model", "first": true, "same": true}, {"id": "P061", "source": "model", "first": true, "same": true}, {"id": "P062", "source": "model", "first": true, "same": true}, {"id": "P063", "source": "model", "first": true, "same": true}, {"id": "P064", "source": "model", "first": true, "same": true}, {"id": "P065", "source": "model", "first": true, "same": true}, {"id": "P066", "source": "model", "first": true, "same": true}, {"id": "P067", "source": "model", "first": true, "same": true}, {"id": "P068", "source": "model", "first": true, "same": true}, {"id": "P069", "source": "model", "first": true, "same": true}, {"id": "P070", "source": "model", "first": true, "same": true}, {"id": "P071", "source": "model", "first": true, "same": true}, {"id": "P072", "source": "model", "first": true, "same": true}, {"id": "P073", "source": "model", "first": true, "same": true}, {"id": "P074", "source": "model", "first": true, "same": true}, {"id": "P075", "source": "model", "first": true, "same": true}, {"id": "P076", "source": "model", "first": true, "same": true}, {"id": "P077", "source": "model", "first": true, "same": true}, {"id": "P078", "source": "model", "first": true, "same": true}, {"id": "P079", "source": "model", "first": true, "same": true}, {"id": "P080", "source": "model", "first": true, "same": true}, {"id": "P081", "source": "model", "first": true, "same": true}, {"id": "P082", "source": "model", "first": true, "same": true}, {"id": "P083", "source": "model", "first": true, "same": true}, {"id": "P084", "source": "model", "first": true, "same": true}, {"id": "P085", "source": "model", "first": true, "same": true}, {"id": "P086", "source": "model", "first": true, "same": true}, {"id": "P087", "source": "model", "first": true, "same": true}, {"id": "P088", "source": "model", "first": true, "same": true}, {"id": "P089", "source": "model", "first": true, "same": true}, {"id": "P090", "source": "model", "first": true, "same": true}, {"id": "P091", "source": "model", "first": true, "same": true}, {"id": "P092", "source": "model", "first": true, "same": true}, {"id": "P093", "source": "model", "first": true, "same": true}, {"id": "P094", "source": "model", "first": true, "same": true}, {"id": "P095", "source": "model", "first": true, "same": true}, {"id": "P096", "source": "model", "first": true, "same": true}, {"id": "P097", "source": "model", "first": true, "same": true}, {"id": "P098", "source": "model", "first": true, "same": true}, {"id": "P099", "source": "model", "first": true, "same": true}, {"id": "P100", "source": "model", "first": true, "same": true}, {"id": "P101", "source": "model", "first": true, "same": true}, {"id": "P102", "source": "model", "first": true, "same": true}, {"id": "P103", "source": "model", "first": true, "same": true}, {"id": "P104", "source": "model", "first": true, "same": true}, {"id": "P105", "source": "model", "first": true, "same": true}, {"id": "P106", "source": "model", "first": true, "same": true}, {"id": "P107", "source": "model", "first": true, "same": true}, {"id": "P108", "source": "model", "first": true, "same": true}, {"id": "P109", "source": "model", "first": true, "same": true}, {"id": "P110", "source": "model", "first": true, "same": true}, {"id": "P111", "source": "model", "first": true, "same": true}, {"id": "P112", "source": "model", "first": true, "same": true}, {"id": "P113", "source": "model", "first": true, "same": true}, {"id": "P114", "source": "model", "first": true, "same": true}, {"id": "P115", "source": "model", "first": true, "same": true}, {"id": "P116", "source": "model", "first": true, "same": true}, {"id": "P117", "source": "model", "first": true, "same": true}, {"id": "P118", "source": "model", "first": true, "same": true}, {"id": "P119", "source": "model", "first": true, "same": true}, {"id": "P120", "source": "model", "first": true, "same": true}, {"id": "P121", "source": "model", "first": true, "same": true}, {"id": "P122", "source": "model", "first": true, "same": true}, {"id": "P123", "source": "model", "first": true, "same": true}, {"id": "P124", "source": "model", "first": true, "same": true}, {"id": "P125", "source": "model", "first": true, "same": true}, {"id": "P126", "source": "model", "first": true, "same": true}, {"id": "P127", "source": "model", "first": true, "same": true}, {"id": "P128", "source": "model", "first": true, "same": true}, {"id": "P129", "source": "model", "first": true, "same": true}, {"id": "P130", "source": "model", "first": true, "same": true}, {"id": "P131", "source": "model", "first": true, "same": true}, {"id": "P132", "source": "model", "first": true, "same": true}, {"id": "P133", "source": "model", "first": true, "same": true}, {"id": "P134", "source": "model", "first": true, "same": true}, {"id": "P135", "source": "model", "first": true, "same": true}, {"id": "P136", "source": "model", "first": true, "same": true}, {"id": "P137", "source": "model", "first": true, "same": true}, {"id": "P138", "source": "model", "first": true, "same": true}, {"id": "P139", "source": "model", "first": true, "same": true}, {"id": "P140", "source": "model", "first": true, "same": true}, {"id": "P141", "source": "model", "first": true, "same": true}, {"id": "P142", "source": "model", "first": true, "same": true}, {"id": "P143", "source": "model", "first": true, "same": true}, {"id": "P144", "source": "model", "first": true, "same": true}, {"id": "P145", "source": "model", "first": true, "same": true}, {"id": "P146", "source": "model", "first": true, "same": true}, {"id": "P147", "source": "model", "first": true, "same": true}, {"id": "P148", "source": "model", "first": true, "same": true}, {"id": "P149", "source": "model", "first": true, "same": true}, {"id": "P150", "source": "model", "first": true, "same": true}];
+
+const STEPS = [
+  { title: "Overview", render: overview },
+  { title: "1. Input", render: input },
+  { title: "2. Route with the model", render: route },
+  { title: "3. Adapt the format", render: adapt },
+  { title: "4. Validate", render: validate },
+  { title: "5. Calculate", render: calculate },
+  { title: "6. Output", render: output },
+  { title: "7. Results for all 150", render: results },
+];
+
+const navEl = document.getElementById("nav");
+const stageEl = document.getElementById("stage");
+let current = 0, timer = null;
+
+STEPS.forEach((s, i) => {
+  const b = document.createElement("button");
+  b.innerHTML = `<span class="n">${i}</span>${s.title.replace(/^\d+\.\s*/, "")}`;
+  b.onclick = () => go(i);
+  navEl.appendChild(b);
+});
+
+function go(i) {
+  current = Math.max(0, Math.min(STEPS.length - 1, i));
+  [...navEl.children].forEach((b, j) => b.setAttribute("aria-current", j === current ? "step" : "false"));
+  stageEl.classList.remove("fade"); void stageEl.offsetWidth; stageEl.classList.add("fade");
+  stageEl.innerHTML = "";
+  STEPS[current].render(stageEl);
+  document.getElementById("prev").disabled = current === 0;
+  document.getElementById("next").disabled = current === STEPS.length - 1;
+}
+
+document.getElementById("prev").onclick = () => go(current - 1);
+document.getElementById("next").onclick = () => go(current + 1);
+const playBtn = document.getElementById("play");
+function setPlaying(on) {
+  clearInterval(timer); timer = null;
+  playBtn.textContent = on ? "❚❚ Pause" : "▶ Play";
+  if (on) timer = setInterval(() => {
+    if (current >= STEPS.length - 1) { setPlaying(false); return; }
+    go(current + 1);
+  }, Number(document.getElementById("speed").value) * 1000);
+}
+playBtn.onclick = () => setPlaying(timer === null);
+document.getElementById("speed").oninput = () => { if (timer) setPlaying(true); };
+
+/* helpers */
+function el(tag, attrs = {}, html = "") {
+  const e = document.createElement(tag);
+  Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+  if (html) e.innerHTML = html;
+  return e;
+}
+function flow(labels, active) {
+  const f = el("div", { class: "flow" });
+  labels.forEach((l, i) => {
+    f.appendChild(el("span", { class: "node" + (i <= active ? " on" : "") }, l));
+    if (i < labels.length - 1) f.appendChild(el("span", { class: "arrow" }, "→"));
+  });
+  return f;
+}
+function reveal(container, selector, delay = 500) {
+  const items = [...container.querySelectorAll(selector)];
+  items.forEach((it, i) => setTimeout(() => it.classList.add("show"), 200 + i * delay));
+}
+
+/* 0. Overview */
+function overview(root) {
+  root.appendChild(el("h2", {}, "What the pipeline does"));
+  root.appendChild(el("p", { class: "lede" }, "A business question goes in. One number comes out. A small model chooses which tested calculation applies. Code computes the number. The model never writes a number."));
+  root.appendChild(flow(["Question", "Model picks function", "Validator", "Code calculates", "Answer row"], 4));
+  root.appendChild(el("div", { class: "box" }, `<pre>Question  +  37 linked tables  +  business rules
+        │
+        ▼
+Model (Qwen2.5-Coder-7B, local)  →  {"function": ..., "args": [...]}
+        │
+        ▼
+Adapt format  →  Validate type & arguments  →  retry once or flag
+        │
+        ▼
+Calculation (pandas · exact solver · simulator)  →  one number
+        │
+        ▼
+public_answers.csv   (question_id, answer)</pre>`));
+  root.appendChild(el("p", { class: "muted" }, "Use Next or Play to go through the steps. Each step shows what the code is doing with real data."));
+}
+
+/* 1. Input */
+function input(root) {
+  root.appendChild(el("h2", {}, "Input: the question and the answer type"));
+  root.appendChild(el("p", { class: "lede" }, "Each question comes with its text and the kind of answer it expects. The walkthrough uses a public toy example."));
+  root.appendChild(el("div", { class: "box" }, `<pre>question_id:  DEMO001
+question:     How many valid orders are there? A valid order must be
+              completed or shipped and have at least one settled payment.
+answer type:  integer</pre>`));
+  root.appendChild(el("p", { class: "muted" }, "The answer type matters later. A count must be an integer, so a routing that returns a name can be rejected."));
+}
+
+/* 2. Route */
+function route(root) {
+  root.appendChild(el("h2", {}, "Route: the model chooses a function"));
+  root.appendChild(el("p", { class: "lede" }, "The model is given a catalogue of 50 functions, each with a description and argument list, and three example mappings. It returns one JSON object."));
+  const sys = el("div", { class: "box" }, `<pre>[system] You route business questions to one calculation function.
+        Reply with one JSON object only:
+        {"function": &lt;name&gt;, "args": [...]}
+        CATALOGUE:
+          - rev_country_period(country, quarter): net revenue ...
+          - growth_country(country): percentage growth ...
+          - ... (50 functions in total)</pre>`);
+  root.appendChild(sys);
+  const out = el("div", { class: "box ok" }, `<pre id="typed"></pre>`);
+  root.appendChild(out);
+  const sample = `{"function": "count_valid_orders", "args": []}`;
+  root.appendChild(el("p", { class: "muted" }, "Illustration only. The toy question has no matching function in the 50-function catalogue, so this output shows the format, not a real routing result."));
+  let i = 0;
+  const pre = out.querySelector("#typed");
+  const tick = setInterval(() => {
+    pre.textContent = sample.slice(0, ++i);
+    if (i >= sample.length) clearInterval(tick);
+  }, 45);
+}
+
+/* 3. Adapt */
+function adapt(root) {
+  root.appendChild(el("h2", {}, "Adapt: fix the format, not the meaning"));
+  root.appendChild(el("p", { class: "lede" }, "Small format differences are corrected before validation. These changes never alter what the question asks."));
+  root.appendChild(el("table", {}, `<thead><tr><th>Model wrote</th><th>After adapting</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td><code>"All families"</code></td><td><code>null</code></td><td>The function expects a null argument for "all"</td></tr>
+      <tr><td><code>"5"</code></td><td><code>5</code></td><td>The function expects a number</td></tr>
+      <tr><td><code>"returns"</code> (a single issue type)</td><td><code>["returns"]</code></td><td>The function expects a list</td></tr>
+    </tbody>`));
+}
+
+/* 4. Validate */
+function validate(root) {
+  root.appendChild(el("h2", {}, "Validate: three checks before any calculation"));
+  root.appendChild(el("p", { class: "lede" }, "The validator checks the routing. Only a routing that passes all three is used."));
+  const list = el("div", { class: "checks box" });
+  list.innerHTML = `
+    <div><span class="tick yes">✓</span> The function exists in the catalogue (<code>count_valid_orders</code>)</div>
+    <div><span class="tick yes">✓</span> The argument count matches (0 expected, 0 given)</div>
+    <div><span class="tick yes">✓</span> The output type matches the question (integer = integer)</div>
+    <div><b>Result: accepted</b></div>`;
+  root.appendChild(list);
+  reveal(list, "div:not(.box)", 600);
+  root.appendChild(el("h3", {}, "What happens when a check fails"));
+  root.appendChild(el("div", { class: "box bad" }, `<pre>Model's choice:  a name lookup (returns a name)
+Question asks for: integer
+Check 3 fails  →  retry once, with "The answer must be of type integer"
+Retry passes   →  accepted
+Retry fails    →  FLAGGED, answered by hand routing, recorded in the output</pre>`));
+}
+
+/* 5. Calculate */
+function calculate(root) {
+  root.appendChild(el("h2", {}, "Calculate: code applies the rules to the tables"));
+  root.appendChild(el("p", { class: "lede" }, "The chosen function runs on the tables. Each rule removes rows or counts them. Watch the rows change."));
+  const ordersHtml = `<table id="orders"><thead><tr><th>order_id</th><th>status</th><th>settled payments</th><th>kept?</th></tr></thead><tbody>
+    <tr data-row="A"><td>A</td><td>completed</td><td>2 (p1, p2)</td><td>counted once</td></tr>
+    <tr data-row="B"><td>B</td><td>cancelled</td><td>1 (p3)</td><td>no: cancelled</td></tr>
+    <tr data-row="C"><td>C</td><td>shipped</td><td>0 (p4 failed)</td><td>no: no settled payment</td></tr>
+  </tbody></table>`;
+  const wrap = el("div", { class: "box" }, ordersHtml);
+  root.appendChild(wrap);
+  const steps = [
+    { text: "Rule 1: keep orders that are completed or shipped.", hit: [], out: ["B"] },
+    { text: "Rule 2: keep orders with at least one settled payment.", hit: [], out: ["B", "C"] },
+    { text: "Rule 3: count each order once, even with two payments.", hit: ["A"], out: ["B", "C"] },
+  ];
+  const note = el("p", { class: "lede" }, "");
+  root.appendChild(note);
+  const result = el("div", { class: "box ok" }, `<pre>Answer: 1</pre>`);
+  result.style.display = "none";
+  root.appendChild(result);
+  steps.forEach((s, i) => setTimeout(() => {
+    note.textContent = s.text;
+    wrap.querySelectorAll("tbody tr").forEach(tr => {
+      tr.classList.remove("out", "hit");
+      if (s.out.includes(tr.dataset.row)) tr.classList.add("out");
+      if (s.hit.includes(tr.dataset.row)) tr.classList.add("hit");
+    });
+    if (i === steps.length - 1) setTimeout(() => { result.style.display = ""; result.classList.add("fade"); }, 900);
+  }, 300 + i * 1400));
+}
+
+/* 6. Output */
+function output(root) {
+  root.appendChild(el("h2", {}, "Output: one row in the answer file"));
+  root.appendChild(el("p", { class: "lede" }, "The answer is written as one row. It is then compared with the hand-routed answer for the same question."));
+  root.appendChild(el("div", { class: "box" }, `<pre>question_id,answer
+DEMO001,1</pre>`));
+  root.appendChild(el("div", { class: "box ok" }, `<pre>Expected answer (organiser's toy answer file):  1
+Match: yes</pre>`));
+  root.appendChild(el("p", { class: "muted" }, "In the company pipeline, the same final step writes the row to public_answers.csv. The organisers' checker then confirms the format: 200 rows, IDs present, no blanks."));
+}
+
+/* 7. Results for all 150 */
+function results(root) {
+  const counts = { model: 0, retry: 0, flagged: 0 };
+  ROUTES.forEach(r => counts[r.source === "flagged" ? "flagged" : "model"]++);
+  const firstOk = ROUTES.filter(r => r.first).length;
+  const exact = ROUTES.filter(r => r.same).length;
+  root.appendChild(el("h2", {}, "Results: all 150 company questions"));
+  root.appendChild(el("p", { class: "lede" }, "Each square is one question. Hover to see its ID. Colours show how the model's routing ended."));
+  const stats = el("div", {});
+  stats.innerHTML = `
+    <span class="stat"><b>${firstOk}</b> / 150 correct function on first try</span>
+    <span class="stat"><b>${counts.model}</b> routed by the model</span>
+    <span class="stat"><b>${counts.flagged}</b> flagged to hand routing</span>
+    <span class="stat"><b>${ROUTES.length}</b> final answers checked</span>`;
+  root.appendChild(stats);
+  root.appendChild(el("div", { class: "legend" }, `
+    <span><i style="background:#2f9e8f"></i>routed by model, correct on first try</span>
+    <span><i style="background:#e09f3e"></i>flagged (answered by hand routing)</span>`));
+  const grid = el("div", { class: "grid" });
+  root.appendChild(grid);
+  ROUTES.forEach((r, i) => {
+    const c = el("div", { class: "cell " + (r.source === "flagged" ? "flagged" : (r.first ? "model" : "retry")), title: r.id + (r.first ? " · correct on first try" : " · flagged") });
+    grid.appendChild(c);
+    setTimeout(() => c.classList.add("show"), i * 12);
+  });
+  root.appendChild(el("p", { class: "muted" }, `All ${exact} of ${ROUTES.length} final answers match the hand-routed answers. The flagged question is answered by hand routing, so it matches by construction. An earlier run used prompt examples that were too close to test questions; its results are kept, labelled as superseded, and not used here.`));
+}
+
+const startStep = parseInt((location.hash.match(/step=(\d+)/) || [])[1], 10);
+go(isNaN(startStep) ? 0 : startStep);
+</script>
+</body>
+</html>

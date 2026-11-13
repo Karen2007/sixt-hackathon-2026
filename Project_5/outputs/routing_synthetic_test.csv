@@ -1,0 +1,501 @@
+question,gold_function,gold_args,answer_type,template_index,max_similarity_to_public
+What was the total net revenue in EUR for customers in Netherlands in Q2 2024?,rev_country_period,"['Netherlands', 'Q2']",number,0,0.509
+"Give me the Q1 2024 net revenue, in euros, of our customers based in Poland.",rev_country_period,"['Poland', 'Q1']",number,1,0.45
+What was the total net revenue in EUR for customers in France in Q1 2024?,rev_country_period,"['France', 'Q1']",number,0,0.524
+"Give me the Q1 2024 net revenue, in euros, of our customers based in Netherlands.",rev_country_period,"['Netherlands', 'Q1']",number,1,0.434
+What was the total net revenue in EUR for customers in Spain in Q2 2024?,rev_country_period,"['Spain', 'Q2']",number,0,0.527
+"Give me the Q1 2024 net revenue, in euros, of our customers based in Austria.",rev_country_period,"['Austria', 'Q1']",number,1,0.485
+What was the total net revenue in EUR for customers in Poland in Q4 2024?,rev_country_period,"['Poland', 'Q4']",number,0,0.524
+"Give me the Q2 2024 net revenue, in euros, of our customers based in France.",rev_country_period,"['France', 'Q2']",number,1,0.44
+What was the total net revenue in EUR for customers in France in Q4 2024?,rev_country_period,"['France', 'Q4']",number,0,0.524
+"Give me the Q1 2024 net revenue, in euros, of our customers based in Austria.",rev_country_period,"['Austria', 'Q1']",number,1,0.485
+What was net revenue in EUR for the Central Europe region in 2024-11?,rev_region_month,"['Central Europe', '2024-11']",number,0,0.616
+Report the euro net revenue of customers in Central Europe for the month 2024-11.,rev_region_month,"['Central Europe', '2024-11']",number,1,0.48
+What was net revenue in EUR for the Western Europe region in 2024-09?,rev_region_month,"['Western Europe', '2024-09']",number,0,0.62
+Report the euro net revenue of customers in Central Europe for the month 2024-05.,rev_region_month,"['Central Europe', '2024-05']",number,1,0.494
+What was net revenue in EUR for the Central Europe region in 2024-11?,rev_region_month,"['Central Europe', '2024-11']",number,0,0.616
+Report the euro net revenue of customers in Central Europe for the month 2024-07.,rev_region_month,"['Central Europe', '2024-07']",number,1,0.482
+What was net revenue in EUR for the Southern Europe region in 2024-05?,rev_region_month,"['Southern Europe', '2024-05']",number,0,0.634
+Report the euro net revenue of customers in Western Europe for the month 2024-02.,rev_region_month,"['Western Europe', '2024-02']",number,1,0.494
+What was net revenue in EUR for the Western Europe region in 2024-07?,rev_region_month,"['Western Europe', '2024-07']",number,0,0.62
+Report the euro net revenue of customers in Western Europe for the month 2024-05.,rev_region_month,"['Western Europe', '2024-05']",number,1,0.494
+By what percentage did net revenue for customers in France change between Q3 and Q4 2024?,growth_country,['France'],number,0,0.449
+"How much did Switzerland net revenue grow, as a percentage, from the third to the fourth quarter of 2024?",growth_country,['Switzerland'],number,1,0.415
+By what percentage did net revenue for customers in Switzerland change between Q3 and Q4 2024?,growth_country,['Switzerland'],number,0,0.459
+"How much did Greece net revenue grow, as a percentage, from the third to the fourth quarter of 2024?",growth_country,['Greece'],number,1,0.442
+By what percentage did net revenue for customers in Netherlands change between Q3 and Q4 2024?,growth_country,['Netherlands'],number,0,0.465
+"How much did France net revenue grow, as a percentage, from the third to the fourth quarter of 2024?",growth_country,['France'],number,1,0.442
+By what percentage did net revenue for customers in Spain change between Q3 and Q4 2024?,growth_country,['Spain'],number,0,0.441
+"How much did France net revenue grow, as a percentage, from the third to the fourth quarter of 2024?",growth_country,['France'],number,1,0.442
+By what percentage did net revenue for customers in Switzerland change between Q3 and Q4 2024?,growth_country,['Switzerland'],number,0,0.459
+"How much did Austria net revenue grow, as a percentage, from the third to the fourth quarter of 2024?",growth_country,['Austria'],number,1,0.446
+Was net revenue in Western Europe up by at least 5 percent from Q3 to Q4 2024?,growth_bool_region,"['Western Europe', 5]",boolean,0,0.551
+Did the Southern Europe region grow its net revenue by 15% or more between Q3 and Q4 2024? Answer yes or no.,growth_bool_region,"['Southern Europe', 15]",boolean,1,0.553
+Was net revenue in Western Europe up by at least 10 percent from Q3 to Q4 2024?,growth_bool_region,"['Western Europe', 10]",boolean,0,0.556
+Did the Southern Europe region grow its net revenue by 10% or more between Q3 and Q4 2024? Answer yes or no.,growth_bool_region,"['Southern Europe', 10]",boolean,1,0.553
+Was net revenue in Western Europe up by at least 10 percent from Q3 to Q4 2024?,growth_bool_region,"['Western Europe', 10]",boolean,0,0.556
+Did the Southern Europe region grow its net revenue by 10% or more between Q3 and Q4 2024? Answer yes or no.,growth_bool_region,"['Southern Europe', 10]",boolean,1,0.553
+Was net revenue in Central Europe up by at least 5 percent from Q3 to Q4 2024?,growth_bool_region,"['Central Europe', 5]",boolean,0,0.551
+Did the Western Europe region grow its net revenue by 5% or more between Q3 and Q4 2024? Answer yes or no.,growth_bool_region,"['Western Europe', 5]",boolean,1,0.554
+Was net revenue in Central Europe up by at least 15 percent from Q3 to Q4 2024?,growth_bool_region,"['Central Europe', 15]",boolean,0,0.556
+Did the Southern Europe region grow its net revenue by 15% or more between Q3 and Q4 2024? Answer yes or no.,growth_bool_region,"['Southern Europe', 15]",boolean,1,0.553
+What percentage of its revenue target did the Southern Europe region reach in Q3 2024?,region_target_pct,"['Southern Europe', 'Q3']",number,0,0.565
+Compare Western Europe net revenue with its targets for Q4 2024. What percentage was achieved?,region_target_pct,"['Western Europe', 'Q4']",number,1,0.481
+What percentage of its revenue target did the Southern Europe region reach in Q1 2024?,region_target_pct,"['Southern Europe', 'Q1']",number,0,0.554
+Compare Central Europe net revenue with its targets for Q4 2024. What percentage was achieved?,region_target_pct,"['Central Europe', 'Q4']",number,1,0.481
+What percentage of its revenue target did the Central Europe region reach in Q3 2024?,region_target_pct,"['Central Europe', 'Q3']",number,0,0.563
+Compare Central Europe net revenue with its targets for Q4 2024. What percentage was achieved?,region_target_pct,"['Central Europe', 'Q4']",number,1,0.481
+What percentage of its revenue target did the Southern Europe region reach in Q1 2024?,region_target_pct,"['Southern Europe', 'Q1']",number,0,0.554
+Compare Western Europe net revenue with its targets for Q1 2024. What percentage was achieved?,region_target_pct,"['Western Europe', 'Q1']",number,1,0.459
+What percentage of its revenue target did the Western Europe region reach in Q3 2024?,region_target_pct,"['Western Europe', 'Q3']",number,0,0.563
+Compare Southern Europe net revenue with its targets for Q3 2024. What percentage was achieved?,region_target_pct,"['Southern Europe', 'Q3']",number,1,0.473
+Did Switzerland reach its revenue target in 2024-09? Answer true or false.,target_met,"['Switzerland', '2024-09']",boolean,0,0.586
+Was the revenue target for Switzerland met in the month 2024-09?,target_met,"['Switzerland', '2024-09']",boolean,1,0.488
+Did France reach its revenue target in 2024-02? Answer true or false.,target_met,"['France', '2024-02']",boolean,0,0.636
+Was the revenue target for Italy met in the month 2024-09?,target_met,"['Italy', '2024-09']",boolean,1,0.513
+Did France reach its revenue target in 2024-02? Answer true or false.,target_met,"['France', '2024-02']",boolean,0,0.636
+Was the revenue target for Italy met in the month 2024-11?,target_met,"['Italy', '2024-11']",boolean,1,0.496
+Did Portugal reach its revenue target in 2024-07? Answer true or false.,target_met,"['Portugal', '2024-07']",boolean,0,0.611
+Was the revenue target for Poland met in the month 2024-07?,target_met,"['Poland', '2024-07']",boolean,1,0.508
+Did Austria reach its revenue target in 2024-09? Answer true or false.,target_met,"['Austria', '2024-09']",boolean,0,0.62
+Was the revenue target for Netherlands met in the month 2024-05?,target_met,"['Netherlands', '2024-05']",boolean,1,0.488
+"What was the z-score of Western Europe net revenue in 2024-02, compared with its monthly values from January to September 2024?",zscore_region_month,"['Western Europe', '2024-02']",number,0,0.415
+How many standard deviations from its usual level was Southern Europe revenue in 2024-02?,zscore_region_month,"['Southern Europe', '2024-02']",number,1,0.453
+"What was the z-score of Central Europe net revenue in 2024-07, compared with its monthly values from January to September 2024?",zscore_region_month,"['Central Europe', '2024-07']",number,0,0.432
+How many standard deviations from its usual level was Central Europe revenue in 2024-05?,zscore_region_month,"['Central Europe', '2024-05']",number,1,0.456
+"What was the z-score of Southern Europe net revenue in 2024-09, compared with its monthly values from January to September 2024?",zscore_region_month,"['Southern Europe', '2024-09']",number,0,0.419
+How many standard deviations from its usual level was Southern Europe revenue in 2024-02?,zscore_region_month,"['Southern Europe', '2024-02']",number,1,0.453
+"What was the z-score of Central Europe net revenue in 2024-09, compared with its monthly values from January to September 2024?",zscore_region_month,"['Central Europe', '2024-09']",number,0,0.432
+How many standard deviations from its usual level was Southern Europe revenue in 2024-11?,zscore_region_month,"['Southern Europe', '2024-11']",number,1,0.45
+"What was the z-score of Southern Europe net revenue in 2024-05, compared with its monthly values from January to September 2024?",zscore_region_month,"['Southern Europe', '2024-05']",number,0,0.419
+How many standard deviations from its usual level was Southern Europe revenue in 2024-11?,zscore_region_month,"['Southern Europe', '2024-11']",number,1,0.45
+Which region had the highest revenue z-score in 2024-07?,top_zscore_region,['2024-07'],string,0,0.586
+"In 2024-09, which region stood furthest above its usual revenue level?",top_zscore_region,['2024-09'],string,1,0.43
+Which region had the highest revenue z-score in 2024-07?,top_zscore_region,['2024-07'],string,0,0.586
+"In 2024-09, which region stood furthest above its usual revenue level?",top_zscore_region,['2024-09'],string,1,0.43
+Which region had the highest revenue z-score in 2024-05?,top_zscore_region,['2024-05'],string,0,0.569
+"In 2024-05, which region stood furthest above its usual revenue level?",top_zscore_region,['2024-05'],string,1,0.43
+Which region had the highest revenue z-score in 2024-02?,top_zscore_region,['2024-02'],string,0,0.569
+"In 2024-05, which region stood furthest above its usual revenue level?",top_zscore_region,['2024-05'],string,1,0.43
+Which region had the highest revenue z-score in 2024-05?,top_zscore_region,['2024-05'],string,0,0.569
+"In 2024-05, which region stood furthest above its usual revenue level?",top_zscore_region,['2024-05'],string,1,0.43
+List the three best-selling product categories by net revenue in Western Europe during Q2 2024.,top3_categories_region,"['Western Europe', 'Q2']",string,0,0.478
+"What were the top three categories in Central Europe for Q4 2024, ranked by net revenue?",top3_categories_region,"['Central Europe', 'Q4']",string,1,0.475
+List the three best-selling product categories by net revenue in Western Europe during Q2 2024.,top3_categories_region,"['Western Europe', 'Q2']",string,0,0.478
+"What were the top three categories in Southern Europe for Q3 2024, ranked by net revenue?",top3_categories_region,"['Southern Europe', 'Q3']",string,1,0.489
+List the three best-selling product categories by net revenue in Central Europe during Q2 2024.,top3_categories_region,"['Central Europe', 'Q2']",string,0,0.478
+"What were the top three categories in Southern Europe for Q3 2024, ranked by net revenue?",top3_categories_region,"['Southern Europe', 'Q3']",string,1,0.489
+List the three best-selling product categories by net revenue in Western Europe during Q3 2024.,top3_categories_region,"['Western Europe', 'Q3']",string,0,0.489
+"What were the top three categories in Central Europe for Q1 2024, ranked by net revenue?",top3_categories_region,"['Central Europe', 'Q1']",string,1,0.475
+List the three best-selling product categories by net revenue in Southern Europe during Q4 2024.,top3_categories_region,"['Southern Europe', 'Q4']",string,0,0.492
+"What were the top three categories in Southern Europe for Q4 2024, ranked by net revenue?",top3_categories_region,"['Southern Europe', 'Q4']",string,1,0.478
+Which product category earned the most net revenue from Mid-Market accounts in Q1 2024?,top_category_segment,"['Mid-Market', 'Q1']",string,0,0.544
+"For Mid-Market customers, what was the leading category by revenue in Q4 2024?",top_category_segment,"['Mid-Market', 'Q4']",string,1,0.479
+Which product category earned the most net revenue from Enterprise accounts in Q2 2024?,top_category_segment,"['Enterprise', 'Q2']",string,0,0.531
+"For Enterprise customers, what was the leading category by revenue in Q2 2024?",top_category_segment,"['Enterprise', 'Q2']",string,1,0.479
+Which product category earned the most net revenue from Mid-Market accounts in Q2 2024?,top_category_segment,"['Mid-Market', 'Q2']",string,0,0.544
+"For Enterprise customers, what was the leading category by revenue in Q3 2024?",top_category_segment,"['Enterprise', 'Q3']",string,1,0.479
+Which product category earned the most net revenue from SMB accounts in Q1 2024?,top_category_segment,"['SMB', 'Q1']",string,0,0.543
+"For Enterprise customers, what was the leading category by revenue in Q1 2024?",top_category_segment,"['Enterprise', 'Q1']",string,1,0.47
+Which product category earned the most net revenue from SMB accounts in Q2 2024?,top_category_segment,"['SMB', 'Q2']",string,0,0.543
+"For SMB customers, what was the leading category by revenue in Q1 2024?",top_category_segment,"['SMB', 'Q1']",string,1,0.486
+Which product brought in the most net revenue in Southern Europe in 2024-11?,top_product_region_month,"['Southern Europe', '2024-11']",string,0,0.515
+Name the best-selling product by revenue for the Central Europe region in 2024-02.,top_product_region_month,"['Central Europe', '2024-02']",string,1,0.538
+Which product brought in the most net revenue in Central Europe in 2024-11?,top_product_region_month,"['Central Europe', '2024-11']",string,0,0.515
+Name the best-selling product by revenue for the Southern Europe region in 2024-05.,top_product_region_month,"['Southern Europe', '2024-05']",string,1,0.54
+Which product brought in the most net revenue in Western Europe in 2024-07?,top_product_region_month,"['Western Europe', '2024-07']",string,0,0.529
+Name the best-selling product by revenue for the Southern Europe region in 2024-11.,top_product_region_month,"['Southern Europe', '2024-11']",string,1,0.529
+Which product brought in the most net revenue in Southern Europe in 2024-09?,top_product_region_month,"['Southern Europe', '2024-09']",string,0,0.526
+Name the best-selling product by revenue for the Central Europe region in 2024-02.,top_product_region_month,"['Central Europe', '2024-02']",string,1,0.538
+Which product brought in the most net revenue in Southern Europe in 2024-09?,top_product_region_month,"['Southern Europe', '2024-09']",string,0,0.526
+Name the best-selling product by revenue for the Southern Europe region in 2024-09.,top_product_region_month,"['Southern Europe', '2024-09']",string,1,0.529
+"What was the approved refund rate for Phone in Q1 2024, as a percentage of gross item revenue?",refund_rate_category_period,"['Phone', 'Q1']",number,0,0.438
+Give the refund percentage of Laptop sales in Q1 2024.,refund_rate_category_period,"['Laptop', 'Q1']",number,1,0.336
+"What was the approved refund rate for Service in Q3 2024, as a percentage of gross item revenue?",refund_rate_category_period,"['Service', 'Q3']",number,0,0.434
+Give the refund percentage of Tablet sales in Q2 2024.,refund_rate_category_period,"['Tablet', 'Q2']",number,1,0.336
+"What was the approved refund rate for Accessory in Q2 2024, as a percentage of gross item revenue?",refund_rate_category_period,"['Accessory', 'Q2']",number,0,0.431
+Give the refund percentage of Service sales in Q2 2024.,refund_rate_category_period,"['Service', 'Q2']",number,1,0.333
+"What was the approved refund rate for Accessory in Q3 2024, as a percentage of gross item revenue?",refund_rate_category_period,"['Accessory', 'Q3']",number,0,0.43
+Give the refund percentage of Appliance sales in Q3 2024.,refund_rate_category_period,"['Appliance', 'Q3']",number,1,0.342
+"What was the approved refund rate for Service in Q2 2024, as a percentage of gross item revenue?",refund_rate_category_period,"['Service', 'Q2']",number,0,0.434
+Give the refund percentage of Service sales in Q2 2024.,refund_rate_category_period,"['Service', 'Q2']",number,1,0.333
+Which product category had the highest approved refund rate among customers in Spain?,top_refund_rate_category_country,['Spain'],string,0,0.537
+"For Spain, which category has the largest share of refunded revenue?",top_refund_rate_category_country,['Spain'],string,1,0.472
+Which product category had the highest approved refund rate among customers in Spain?,top_refund_rate_category_country,['Spain'],string,0,0.537
+"For Netherlands, which category has the largest share of refunded revenue?",top_refund_rate_category_country,['Netherlands'],string,1,0.449
+Which product category had the highest approved refund rate among customers in Greece?,top_refund_rate_category_country,['Greece'],string,0,0.535
+"For Switzerland, which category has the largest share of refunded revenue?",top_refund_rate_category_country,['Switzerland'],string,1,0.455
+Which product category had the highest approved refund rate among customers in Greece?,top_refund_rate_category_country,['Greece'],string,0,0.535
+"For Greece, which category has the largest share of refunded revenue?",top_refund_rate_category_country,['Greece'],string,1,0.47
+Which product category had the highest approved refund rate among customers in Poland?,top_refund_rate_category_country,['Poland'],string,0,0.528
+"For Greece, which category has the largest share of refunded revenue?",top_refund_rate_category_country,['Greece'],string,1,0.47
+"What is the margin rate, as a percentage, for the Networking category across all periods?",margin_rate_category,['Networking'],number,0,0.424
+How profitable is Tablet overall? Give the margin rate in percent.,margin_rate_category,['Tablet'],number,1,0.368
+"What is the margin rate, as a percentage, for the Service category across all periods?",margin_rate_category,['Service'],number,0,0.421
+How profitable is Accessory overall? Give the margin rate in percent.,margin_rate_category,['Accessory'],number,1,0.391
+"What is the margin rate, as a percentage, for the Accessory category across all periods?",margin_rate_category,['Accessory'],number,0,0.42
+How profitable is Phone overall? Give the margin rate in percent.,margin_rate_category,['Phone'],number,1,0.419
+"What is the margin rate, as a percentage, for the Tablet category across all periods?",margin_rate_category,['Tablet'],number,0,0.432
+How profitable is Phone overall? Give the margin rate in percent.,margin_rate_category,['Phone'],number,1,0.419
+"What is the margin rate, as a percentage, for the Networking category across all periods?",margin_rate_category,['Networking'],number,0,0.424
+How profitable is Service overall? Give the margin rate in percent.,margin_rate_category,['Service'],number,1,0.413
+Which product category had the highest margin rate in Q4 2024?,top_margin_category,['Q4'],string,0,0.57
+"In Q3 2024, what category earned the best margin percentage?",top_margin_category,['Q3'],string,1,0.492
+Which product category had the highest margin rate in Q3 2024?,top_margin_category,['Q3'],string,0,0.57
+"In Q1 2024, what category earned the best margin percentage?",top_margin_category,['Q1'],string,1,0.482
+Which product category had the highest margin rate in Q2 2024?,top_margin_category,['Q2'],string,0,0.57
+"In Q1 2024, what category earned the best margin percentage?",top_margin_category,['Q1'],string,1,0.482
+Which product category had the highest margin rate in Q2 2024?,top_margin_category,['Q2'],string,0,0.57
+"In Q4 2024, what category earned the best margin percentage?",top_margin_category,['Q4'],string,1,0.482
+Which product category had the highest margin rate in Q2 2024?,top_margin_category,['Q2'],string,0,0.57
+"In Q3 2024, what category earned the best margin percentage?",top_margin_category,['Q3'],string,1,0.492
+What is the correlation between line discount rate and refund rate across product categories?,refund_discount_correlation,[],number,0,0.415
+"Across categories, how strongly do discount rates and refund rates move together?",refund_discount_correlation,[],number,1,0.368
+What is the correlation between line discount rate and refund rate across product categories?,refund_discount_correlation,[],number,0,0.415
+"Across categories, how strongly do discount rates and refund rates move together?",refund_discount_correlation,[],number,1,0.368
+What is the correlation between line discount rate and refund rate across product categories?,refund_discount_correlation,[],number,0,0.415
+"Across categories, how strongly do discount rates and refund rates move together?",refund_discount_correlation,[],number,1,0.368
+What is the correlation between line discount rate and refund rate across product categories?,refund_discount_correlation,[],number,0,0.415
+"Across categories, how strongly do discount rates and refund rates move together?",refund_discount_correlation,[],number,1,0.368
+What is the correlation between line discount rate and refund rate across product categories?,refund_discount_correlation,[],number,0,0.415
+"Across categories, how strongly do discount rates and refund rates move together?",refund_discount_correlation,[],number,1,0.368
+What is the median net revenue per valid order for Enterprise accounts?,median_order_net_segment,['Enterprise'],number,0,0.593
+Give the typical (median) order value in euros for Mid-Market customers.,median_order_net_segment,['Mid-Market'],number,1,0.43
+What is the median net revenue per valid order for SMB accounts?,median_order_net_segment,['SMB'],number,0,0.615
+Give the typical (median) order value in euros for SMB customers.,median_order_net_segment,['SMB'],number,1,0.425
+What is the median net revenue per valid order for Enterprise accounts?,median_order_net_segment,['Enterprise'],number,0,0.593
+Give the typical (median) order value in euros for Mid-Market customers.,median_order_net_segment,['Mid-Market'],number,1,0.43
+What is the median net revenue per valid order for SMB accounts?,median_order_net_segment,['SMB'],number,0,0.615
+Give the typical (median) order value in euros for Mid-Market customers.,median_order_net_segment,['Mid-Market'],number,1,0.43
+What is the median net revenue per valid order for SMB accounts?,median_order_net_segment,['SMB'],number,0,0.615
+Give the typical (median) order value in euros for Enterprise customers.,median_order_net_segment,['Enterprise'],number,1,0.455
+What is the 90th percentile of lifetime net revenue per account in the SMB segment?,p90_account,['SMB'],number,0,0.521
+How much lifetime revenue does a top-decile Enterprise account generate? Use the 90th percentile.,p90_account,['Enterprise'],number,1,0.409
+What is the 90th percentile of lifetime net revenue per account in the Mid-Market segment?,p90_account,['Mid-Market'],number,0,0.587
+How much lifetime revenue does a top-decile SMB account generate? Use the 90th percentile.,p90_account,['SMB'],number,1,0.413
+What is the 90th percentile of lifetime net revenue per account in the Enterprise segment?,p90_account,['Enterprise'],number,0,0.53
+How much lifetime revenue does a top-decile Mid-Market account generate? Use the 90th percentile.,p90_account,['Mid-Market'],number,1,0.427
+What is the 90th percentile of lifetime net revenue per account in the Enterprise segment?,p90_account,['Enterprise'],number,0,0.53
+How much lifetime revenue does a top-decile Mid-Market account generate? Use the 90th percentile.,p90_account,['Mid-Market'],number,1,0.427
+What is the 90th percentile of lifetime net revenue per account in the SMB segment?,p90_account,['SMB'],number,0,0.521
+How much lifetime revenue does a top-decile Mid-Market account generate? Use the 90th percentile.,p90_account,['Mid-Market'],number,1,0.427
+"For the highest-revenue Enterprise account, what share of its lifetime revenue came from Software?",top_account_category_share,"['Enterprise', 'Software']",number,0,0.545
+What percentage of the biggest Mid-Market customer's revenue is in the Software category?,top_account_category_share,"['Mid-Market', 'Software']",number,1,0.422
+"For the highest-revenue SMB account, what share of its lifetime revenue came from Appliance?",top_account_category_share,"['SMB', 'Appliance']",number,0,0.549
+What percentage of the biggest SMB customer's revenue is in the Laptop category?,top_account_category_share,"['SMB', 'Laptop']",number,1,0.413
+"For the highest-revenue Enterprise account, what share of its lifetime revenue came from Laptop?",top_account_category_share,"['Enterprise', 'Laptop']",number,0,0.542
+What percentage of the biggest Enterprise customer's revenue is in the Laptop category?,top_account_category_share,"['Enterprise', 'Laptop']",number,1,0.449
+"For the highest-revenue SMB account, what share of its lifetime revenue came from Tablet?",top_account_category_share,"['SMB', 'Tablet']",number,0,0.52
+What percentage of the biggest SMB customer's revenue is in the Laptop category?,top_account_category_share,"['SMB', 'Laptop']",number,1,0.413
+"For the highest-revenue SMB account, what share of its lifetime revenue came from Tablet?",top_account_category_share,"['SMB', 'Tablet']",number,0,0.52
+What percentage of the biggest SMB customer's revenue is in the Service category?,top_account_category_share,"['SMB', 'Service']",number,1,0.421
+Which account manager is responsible for the most lifetime revenue among at-risk customers?,at_risk_top_manager,[],string,0,0.796
+Name the sales manager whose at-risk customers represent the largest lifetime revenue.,at_risk_top_manager,[],string,1,0.464
+Which account manager is responsible for the most lifetime revenue among at-risk customers?,at_risk_top_manager,[],string,0,0.796
+Name the sales manager whose at-risk customers represent the largest lifetime revenue.,at_risk_top_manager,[],string,1,0.464
+Which account manager is responsible for the most lifetime revenue among at-risk customers?,at_risk_top_manager,[],string,0,0.796
+Name the sales manager whose at-risk customers represent the largest lifetime revenue.,at_risk_top_manager,[],string,1,0.464
+Which account manager is responsible for the most lifetime revenue among at-risk customers?,at_risk_top_manager,[],string,0,0.796
+Name the sales manager whose at-risk customers represent the largest lifetime revenue.,at_risk_top_manager,[],string,1,0.464
+Which account manager is responsible for the most lifetime revenue among at-risk customers?,at_risk_top_manager,[],string,0,0.796
+Name the sales manager whose at-risk customers represent the largest lifetime revenue.,at_risk_top_manager,[],string,1,0.464
+Which normalised email domain brings in the most valid-order net revenue?,top_email_domain,[],string,0,0.743
+What is the email domain that contributes the highest net revenue from valid orders?,top_email_domain,[],string,1,0.527
+Which normalised email domain brings in the most valid-order net revenue?,top_email_domain,[],string,0,0.743
+What is the email domain that contributes the highest net revenue from valid orders?,top_email_domain,[],string,1,0.527
+Which normalised email domain brings in the most valid-order net revenue?,top_email_domain,[],string,0,0.743
+What is the email domain that contributes the highest net revenue from valid orders?,top_email_domain,[],string,1,0.527
+Which normalised email domain brings in the most valid-order net revenue?,top_email_domain,[],string,0,0.743
+What is the email domain that contributes the highest net revenue from valid orders?,top_email_domain,[],string,1,0.527
+Which normalised email domain brings in the most valid-order net revenue?,top_email_domain,[],string,0,0.743
+What is the email domain that contributes the highest net revenue from valid orders?,top_email_domain,[],string,1,0.527
+How many high-value customers in Germany are at risk?,atrisk_count_country,['Germany'],integer,0,0.425
+Count the at-risk high-value real customers based in Spain.,atrisk_count_country,['Spain'],integer,1,0.511
+How many high-value customers in Spain are at risk?,atrisk_count_country,['Spain'],integer,0,0.453
+Count the at-risk high-value real customers based in Germany.,atrisk_count_country,['Germany'],integer,1,0.473
+How many high-value customers in Austria are at risk?,atrisk_count_country,['Austria'],integer,0,0.425
+Count the at-risk high-value real customers based in Austria.,atrisk_count_country,['Austria'],integer,1,0.473
+How many high-value customers in France are at risk?,atrisk_count_country,['France'],integer,0,0.428
+Count the at-risk high-value real customers based in Spain.,atrisk_count_country,['Spain'],integer,1,0.511
+How many high-value customers in Germany are at risk?,atrisk_count_country,['Germany'],integer,0,0.425
+Count the at-risk high-value real customers based in Poland.,atrisk_count_country,['Poland'],integer,1,0.516
+How many distinct real customers are there in Greece after merging duplicate identities?,unique_real_customers_country,['Greece'],integer,0,0.457
+"Count the unique people who are real customers in Greece, with duplicate emails merged.",unique_real_customers_country,['Greece'],integer,1,0.38
+How many distinct real customers are there in Austria after merging duplicate identities?,unique_real_customers_country,['Austria'],integer,0,0.465
+"Count the unique people who are real customers in Italy, with duplicate emails merged.",unique_real_customers_country,['Italy'],integer,1,0.39
+How many distinct real customers are there in Greece after merging duplicate identities?,unique_real_customers_country,['Greece'],integer,0,0.457
+"Count the unique people who are real customers in Italy, with duplicate emails merged.",unique_real_customers_country,['Italy'],integer,1,0.39
+How many distinct real customers are there in Spain after merging duplicate identities?,unique_real_customers_country,['Spain'],integer,0,0.469
+"Count the unique people who are real customers in Greece, with duplicate emails merged.",unique_real_customers_country,['Greece'],integer,1,0.38
+How many distinct real customers are there in Switzerland after merging duplicate identities?,unique_real_customers_country,['Switzerland'],integer,0,0.455
+"Count the unique people who are real customers in Netherlands, with duplicate emails merged.",unique_real_customers_country,['Netherlands'],integer,1,0.409
+How many active customers does the Southern Europe region have?,active_count_region,['Southern Europe'],integer,0,0.605
+Count the currently active real customers in Western Europe.,active_count_region,['Western Europe'],integer,1,0.568
+How many active customers does the Southern Europe region have?,active_count_region,['Southern Europe'],integer,0,0.605
+Count the currently active real customers in Central Europe.,active_count_region,['Central Europe'],integer,1,0.509
+How many active customers does the Central Europe region have?,active_count_region,['Central Europe'],integer,0,0.573
+Count the currently active real customers in Western Europe.,active_count_region,['Western Europe'],integer,1,0.568
+How many active customers does the Southern Europe region have?,active_count_region,['Southern Europe'],integer,0,0.605
+Count the currently active real customers in Southern Europe.,active_count_region,['Southern Europe'],integer,1,0.541
+How many active customers does the Western Europe region have?,active_count_region,['Western Europe'],integer,0,0.632
+Count the currently active real customers in Western Europe.,active_count_region,['Western Europe'],integer,1,0.568
+On what date was the first valid order placed by customers acquired through Partner?,earliest_order_by_channel,['Partner'],date,0,0.425
+When did the earliest valid order come from a Paid Search acquisition?,earliest_order_by_channel,['Paid Search'],date,1,0.374
+On what date was the first valid order placed by customers acquired through Partner?,earliest_order_by_channel,['Partner'],date,0,0.425
+When did the earliest valid order come from a Events acquisition?,earliest_order_by_channel,['Events'],date,1,0.425
+On what date was the first valid order placed by customers acquired through Partner?,earliest_order_by_channel,['Partner'],date,0,0.425
+When did the earliest valid order come from a Events acquisition?,earliest_order_by_channel,['Events'],date,1,0.425
+On what date was the first valid order placed by customers acquired through Partner?,earliest_order_by_channel,['Partner'],date,0,0.425
+When did the earliest valid order come from a Partner acquisition?,earliest_order_by_channel,['Partner'],date,1,0.374
+On what date was the first valid order placed by customers acquired through Email?,earliest_order_by_channel,['Email'],date,0,0.438
+When did the earliest valid order come from a Paid Search acquisition?,earliest_order_by_channel,['Paid Search'],date,1,0.374
+What percentage of Events customers ordered within 30 days of starting their trial?,trial_conversion,['Events'],number,0,0.429
+"Give the trial-to-order conversion rate for the Partner channel, within a 30-day window.",trial_conversion,['Partner'],number,1,0.364
+What percentage of Email customers ordered within 30 days of starting their trial?,trial_conversion,['Email'],number,0,0.436
+"Give the trial-to-order conversion rate for the Events channel, within a 30-day window.",trial_conversion,['Events'],number,1,0.373
+What percentage of Events customers ordered within 30 days of starting their trial?,trial_conversion,['Events'],number,0,0.429
+"Give the trial-to-order conversion rate for the Events channel, within a 30-day window.",trial_conversion,['Events'],number,1,0.373
+What percentage of Paid Search customers ordered within 30 days of starting their trial?,trial_conversion,['Paid Search'],number,0,0.433
+"Give the trial-to-order conversion rate for the Partner channel, within a 30-day window.",trial_conversion,['Partner'],number,1,0.364
+What percentage of Referral customers ordered within 30 days of starting their trial?,trial_conversion,['Referral'],number,0,0.43
+"Give the trial-to-order conversion rate for the Email channel, within a 30-day window.",trial_conversion,['Email'],number,1,0.355
+"Of the customers whose first valid order was in 2024-11, what percentage ordered again within 14 days?",cohort_retention,"['2024-11', 14]",number,0,0.564
+What share of the 2024-07 cohort placed a second order inside 60 days?,cohort_retention,"['2024-07', 60]",number,1,0.346
+"Of the customers whose first valid order was in 2024-11, what percentage ordered again within 60 days?",cohort_retention,"['2024-11', 60]",number,0,0.57
+What share of the 2024-11 cohort placed a second order inside 30 days?,cohort_retention,"['2024-11', 30]",number,1,0.346
+"Of the customers whose first valid order was in 2024-02, what percentage ordered again within 60 days?",cohort_retention,"['2024-02', 60]",number,0,0.584
+What share of the 2024-02 cohort placed a second order inside 14 days?,cohort_retention,"['2024-02', 14]",number,1,0.346
+"Of the customers whose first valid order was in 2024-05, what percentage ordered again within 30 days?",cohort_retention,"['2024-05', 30]",number,0,0.584
+What share of the 2024-02 cohort placed a second order inside 14 days?,cohort_retention,"['2024-02', 14]",number,1,0.346
+"Of the customers whose first valid order was in 2024-11, what percentage ordered again within 30 days?",cohort_retention,"['2024-11', 30]",number,0,0.577
+What share of the 2024-11 cohort placed a second order inside 14 days?,cohort_retention,"['2024-11', 14]",number,1,0.343
+What percentage of real customers with a direct web visit ordered within 14 days of that visit?,web_direct_conversion,[],number,0,0.455
+"Give the conversion rate for direct web sessions, measured as orders within 14 days.",web_direct_conversion,[],number,1,0.389
+What percentage of real customers with a direct web visit ordered within 14 days of that visit?,web_direct_conversion,[],number,0,0.455
+"Give the conversion rate for direct web sessions, measured as orders within 14 days.",web_direct_conversion,[],number,1,0.389
+What percentage of real customers with a direct web visit ordered within 14 days of that visit?,web_direct_conversion,[],number,0,0.455
+"Give the conversion rate for direct web sessions, measured as orders within 14 days.",web_direct_conversion,[],number,1,0.389
+What percentage of real customers with a direct web visit ordered within 14 days of that visit?,web_direct_conversion,[],number,0,0.455
+"Give the conversion rate for direct web sessions, measured as orders within 14 days.",web_direct_conversion,[],number,1,0.389
+What percentage of real customers with a direct web visit ordered within 14 days of that visit?,web_direct_conversion,[],number,0,0.455
+"Give the conversion rate for direct web sessions, measured as orders within 14 days.",web_direct_conversion,[],number,1,0.389
+Which campaign generated the most attributed net revenue through the Email channel?,campaign_top_attributed,['Email'],string,0,0.622
+"Among Paid Search touches, which campaign is credited with the largest revenue?",campaign_top_attributed,['Paid Search'],string,1,0.491
+Which campaign generated the most attributed net revenue through the Organic channel?,campaign_top_attributed,['Organic'],string,0,0.608
+"Among Partner touches, which campaign is credited with the largest revenue?",campaign_top_attributed,['Partner'],string,1,0.497
+Which campaign generated the most attributed net revenue through the Partner channel?,campaign_top_attributed,['Partner'],string,0,0.617
+"Among Partner touches, which campaign is credited with the largest revenue?",campaign_top_attributed,['Partner'],string,1,0.497
+Which campaign generated the most attributed net revenue through the Partner channel?,campaign_top_attributed,['Partner'],string,0,0.617
+"Among Events touches, which campaign is credited with the largest revenue?",campaign_top_attributed,['Events'],string,1,0.5
+Which campaign generated the most attributed net revenue through the Referral channel?,campaign_top_attributed,['Referral'],string,0,0.598
+"Among Organic touches, which campaign is credited with the largest revenue?",campaign_top_attributed,['Organic'],string,1,0.462
+What is the lifetime net revenue of customers who saw the Winback campaign and later raised a delivery ticket?,campaign_ticket_revenue,"['Winback', ['delivery']]",number,0,0.445
+Total the lifetime revenue of real customers reached by Winback who opened a delivery support ticket.,campaign_ticket_revenue,"['Winback', ['delivery']]",number,1,0.398
+What is the lifetime net revenue of customers who saw the SecurityPush campaign and later raised a delivery ticket?,campaign_ticket_revenue,"['SecurityPush', ['delivery']]",number,0,0.444
+Total the lifetime revenue of real customers reached by SpringLaunch who opened a delivery support ticket.,campaign_ticket_revenue,"['SpringLaunch', ['delivery']]",number,1,0.388
+What is the lifetime net revenue of customers who saw the SecurityPush campaign and later raised a billing ticket?,campaign_ticket_revenue,"['SecurityPush', ['billing']]",number,0,0.438
+Total the lifetime revenue of real customers reached by RetentionWave who opened a billing support ticket.,campaign_ticket_revenue,"['RetentionWave', ['billing']]",number,1,0.388
+What is the lifetime net revenue of customers who saw the PartnerBoost campaign and later raised a billing ticket?,campaign_ticket_revenue,"['PartnerBoost', ['billing']]",number,0,0.455
+Total the lifetime revenue of real customers reached by Winback who opened a billing support ticket.,campaign_ticket_revenue,"['Winback', ['billing']]",number,1,0.4
+What is the lifetime net revenue of customers who saw the PartnerBoost campaign and later raised a delivery ticket?,campaign_ticket_revenue,"['PartnerBoost', ['delivery']]",number,0,0.461
+Total the lifetime revenue of real customers reached by SecurityPush who opened a billing support ticket.,campaign_ticket_revenue,"['SecurityPush', ['billing']]",number,1,0.39
+"For Italian customers, which category generated the most revenue before their first support ticket?",italy_pre_ticket_top_category,[],string,0,0.486
+"Before each Italian customer's first ticket, what category led revenue?",italy_pre_ticket_top_category,[],string,1,0.43
+"For Italian customers, which category generated the most revenue before their first support ticket?",italy_pre_ticket_top_category,[],string,0,0.486
+"Before each Italian customer's first ticket, what category led revenue?",italy_pre_ticket_top_category,[],string,1,0.43
+"For Italian customers, which category generated the most revenue before their first support ticket?",italy_pre_ticket_top_category,[],string,0,0.486
+"Before each Italian customer's first ticket, what category led revenue?",italy_pre_ticket_top_category,[],string,1,0.43
+"For Italian customers, which category generated the most revenue before their first support ticket?",italy_pre_ticket_top_category,[],string,0,0.486
+"Before each Italian customer's first ticket, what category led revenue?",italy_pre_ticket_top_category,[],string,1,0.43
+"For Italian customers, which category generated the most revenue before their first support ticket?",italy_pre_ticket_top_category,[],string,0,0.486
+"Before each Italian customer's first ticket, what category led revenue?",italy_pre_ticket_top_category,[],string,1,0.43
+What is the most common ticket issue type among high-value Enterprise accounts?,issue_mode_high_value,['Enterprise'],string,0,0.46
+Which issue type appears most often in support tickets from Enterprise high-value customers?,issue_mode_high_value,['Enterprise'],string,1,0.398
+What is the most common ticket issue type among high-value SMB accounts?,issue_mode_high_value,['SMB'],string,0,0.443
+Which issue type appears most often in support tickets from Mid-Market high-value customers?,issue_mode_high_value,['Mid-Market'],string,1,0.398
+What is the most common ticket issue type among high-value Enterprise accounts?,issue_mode_high_value,['Enterprise'],string,0,0.46
+Which issue type appears most often in support tickets from Enterprise high-value customers?,issue_mode_high_value,['Enterprise'],string,1,0.398
+What is the most common ticket issue type among high-value SMB accounts?,issue_mode_high_value,['SMB'],string,0,0.443
+Which issue type appears most often in support tickets from SMB high-value customers?,issue_mode_high_value,['SMB'],string,1,0.379
+What is the most common ticket issue type among high-value SMB accounts?,issue_mode_high_value,['SMB'],string,0,0.443
+Which issue type appears most often in support tickets from Mid-Market high-value customers?,issue_mode_high_value,['Mid-Market'],string,1,0.398
+What percentage of high-priority tickets breached their service level?,high_priority_breach_pct,[],number,0,0.492
+"Give the SLA breach rate for high-priority support tickets, in percent.",high_priority_breach_pct,[],number,1,0.345
+What percentage of high-priority tickets breached their service level?,high_priority_breach_pct,[],number,0,0.492
+"Give the SLA breach rate for high-priority support tickets, in percent.",high_priority_breach_pct,[],number,1,0.345
+What percentage of high-priority tickets breached their service level?,high_priority_breach_pct,[],number,0,0.492
+"Give the SLA breach rate for high-priority support tickets, in percent.",high_priority_breach_pct,[],number,1,0.345
+What percentage of high-priority tickets breached their service level?,high_priority_breach_pct,[],number,0,0.492
+"Give the SLA breach rate for high-priority support tickets, in percent.",high_priority_breach_pct,[],number,1,0.345
+What percentage of high-priority tickets breached their service level?,high_priority_breach_pct,[],number,0,0.492
+"Give the SLA breach rate for high-priority support tickets, in percent.",high_priority_breach_pct,[],number,1,0.345
+"For Central Europe, what percentage of tickets raised within 14 days of a late delivery breached the service level?",late_ticket_breach_pct,['Central Europe'],number,0,0.44
+"Among tickets opened within two weeks of a late shipment in Southern Europe, what share breached SLA?",late_ticket_breach_pct,['Southern Europe'],number,1,0.438
+"For Central Europe, what percentage of tickets raised within 14 days of a late delivery breached the service level?",late_ticket_breach_pct,['Central Europe'],number,0,0.44
+"Among tickets opened within two weeks of a late shipment in Southern Europe, what share breached SLA?",late_ticket_breach_pct,['Southern Europe'],number,1,0.438
+"For Central Europe, what percentage of tickets raised within 14 days of a late delivery breached the service level?",late_ticket_breach_pct,['Central Europe'],number,0,0.44
+"Among tickets opened within two weeks of a late shipment in Western Europe, what share breached SLA?",late_ticket_breach_pct,['Western Europe'],number,1,0.44
+"For Central Europe, what percentage of tickets raised within 14 days of a late delivery breached the service level?",late_ticket_breach_pct,['Central Europe'],number,0,0.44
+"Among tickets opened within two weeks of a late shipment in Southern Europe, what share breached SLA?",late_ticket_breach_pct,['Southern Europe'],number,1,0.438
+"For Southern Europe, what percentage of tickets raised within 14 days of a late delivery breached the service level?",late_ticket_breach_pct,['Southern Europe'],number,0,0.444
+"Among tickets opened within two weeks of a late shipment in Central Europe, what share breached SLA?",late_ticket_breach_pct,['Central Europe'],number,1,0.44
+How many accounts in the Retail industry had both a late shipment and an SLA-breaching ticket?,accounts_late_breach,['Retail'],integer,0,0.84
+Count the Technology accounts with at least one late delivery and at least one breached ticket.,accounts_late_breach,['Technology'],integer,1,0.673
+How many accounts in the Finance industry had both a late shipment and an SLA-breaching ticket?,accounts_late_breach,['Finance'],integer,0,0.841
+Count the Finance accounts with at least one late delivery and at least one breached ticket.,accounts_late_breach,['Finance'],integer,1,0.664
+How many accounts in the Retail industry had both a late shipment and an SLA-breaching ticket?,accounts_late_breach,['Retail'],integer,0,0.84
+Count the Logistics accounts with at least one late delivery and at least one breached ticket.,accounts_late_breach,['Logistics'],integer,1,0.623
+How many accounts in the Manufacturing industry had both a late shipment and an SLA-breaching ticket?,accounts_late_breach,['Manufacturing'],integer,0,0.85
+Count the Logistics accounts with at least one late delivery and at least one breached ticket.,accounts_late_breach,['Logistics'],integer,1,0.623
+How many accounts in the Health industry had both a late shipment and an SLA-breaching ticket?,accounts_late_breach,['Health'],integer,0,0.84
+Count the Logistics accounts with at least one late delivery and at least one breached ticket.,accounts_late_breach,['Logistics'],integer,1,0.623
+"What is the revenue-weighted average delay, in days, of late shipments handled by UPS?",carrier_wdelay,['UPS'],number,0,0.554
+Give the weighted mean lateness in days for DPD deliveries that were late.,carrier_wdelay,['DPD'],number,1,0.393
+"What is the revenue-weighted average delay, in days, of late shipments handled by DPD?",carrier_wdelay,['DPD'],number,0,0.546
+Give the weighted mean lateness in days for DHL deliveries that were late.,carrier_wdelay,['DHL'],number,1,0.393
+"What is the revenue-weighted average delay, in days, of late shipments handled by DPD?",carrier_wdelay,['DPD'],number,0,0.546
+Give the weighted mean lateness in days for DHL deliveries that were late.,carrier_wdelay,['DHL'],number,1,0.393
+"What is the revenue-weighted average delay, in days, of late shipments handled by DPD?",carrier_wdelay,['DPD'],number,0,0.546
+Give the weighted mean lateness in days for GLS deliveries that were late.,carrier_wdelay,['GLS'],number,1,0.393
+"What is the revenue-weighted average delay, in days, of late shipments handled by GLS?",carrier_wdelay,['GLS'],number,0,0.554
+Give the weighted mean lateness in days for DHL deliveries that were late.,carrier_wdelay,['DHL'],number,1,0.393
+Which carrier has the largest revenue-weighted average delay on late shipments in Southern Europe?,top_carrier_by_wdelay,['Southern Europe'],string,0,0.522
+"In Southern Europe, which carrier is most late on average, weighting by revenue?",top_carrier_by_wdelay,['Southern Europe'],string,1,0.477
+Which carrier has the largest revenue-weighted average delay on late shipments in Western Europe?,top_carrier_by_wdelay,['Western Europe'],string,0,0.531
+"In Western Europe, which carrier is most late on average, weighting by revenue?",top_carrier_by_wdelay,['Western Europe'],string,1,0.472
+Which carrier has the largest revenue-weighted average delay on late shipments in Southern Europe?,top_carrier_by_wdelay,['Southern Europe'],string,0,0.522
+"In Western Europe, which carrier is most late on average, weighting by revenue?",top_carrier_by_wdelay,['Western Europe'],string,1,0.472
+Which carrier has the largest revenue-weighted average delay on late shipments in Central Europe?,top_carrier_by_wdelay,['Central Europe'],string,0,0.524
+"In Central Europe, which carrier is most late on average, weighting by revenue?",top_carrier_by_wdelay,['Central Europe'],string,1,0.472
+Which carrier has the largest revenue-weighted average delay on late shipments in Central Europe?,top_carrier_by_wdelay,['Central Europe'],string,0,0.524
+"In Central Europe, which carrier is most late on average, weighting by revenue?",top_carrier_by_wdelay,['Central Europe'],string,1,0.472
+"What is the total eligible purchase commitment, in euros, with suppliers in France?",commitment_country,['France'],number,0,0.368
+"Sum the purchase commitments for suppliers based in Italy, in EUR.",commitment_country,['Italy'],number,1,0.365
+"What is the total eligible purchase commitment, in euros, with suppliers in Italy?",commitment_country,['Italy'],number,0,0.38
+"Sum the purchase commitments for suppliers based in Austria, in EUR.",commitment_country,['Austria'],number,1,0.362
+"What is the total eligible purchase commitment, in euros, with suppliers in Germany?",commitment_country,['Germany'],number,0,0.372
+"Sum the purchase commitments for suppliers based in Italy, in EUR.",commitment_country,['Italy'],number,1,0.365
+"What is the total eligible purchase commitment, in euros, with suppliers in Germany?",commitment_country,['Germany'],number,0,0.372
+"Sum the purchase commitments for suppliers based in Poland, in EUR.",commitment_country,['Poland'],number,1,0.349
+"What is the total eligible purchase commitment, in euros, with suppliers in Italy?",commitment_country,['Italy'],number,0,0.38
+"Sum the purchase commitments for suppliers based in Poland, in EUR.",commitment_country,['Poland'],number,1,0.349
+How many units are still outstanding on eligible purchase lines for the East warehouse?,outstanding_units,['East'],integer,0,0.353
+Count the open units not yet received for warehouse West.,outstanding_units,['West'],integer,1,0.421
+How many units are still outstanding on eligible purchase lines for the West warehouse?,outstanding_units,['West'],integer,0,0.353
+Count the open units not yet received for warehouse West.,outstanding_units,['West'],integer,1,0.421
+How many units are still outstanding on eligible purchase lines for the South warehouse?,outstanding_units,['South'],integer,0,0.352
+Count the open units not yet received for warehouse North.,outstanding_units,['North'],integer,1,0.418
+How many units are still outstanding on eligible purchase lines for the Central warehouse?,outstanding_units,['Central'],integer,0,0.339
+Count the open units not yet received for warehouse North.,outstanding_units,['North'],integer,1,0.418
+How many units are still outstanding on eligible purchase lines for the Central warehouse?,outstanding_units,['Central'],integer,0,0.339
+Count the open units not yet received for warehouse East.,outstanding_units,['East'],integer,1,0.421
+What percentage of units due from suppliers in Poland were accepted on time?,ontime_pct,['Poland'],number,0,0.478
+"Give the on-time acceptance rate, in percent, for France suppliers.",ontime_pct,['France'],number,1,0.355
+What percentage of units due from suppliers in Italy were accepted on time?,ontime_pct,['Italy'],number,0,0.471
+"Give the on-time acceptance rate, in percent, for Austria suppliers.",ontime_pct,['Austria'],number,1,0.367
+What percentage of units due from suppliers in France were accepted on time?,ontime_pct,['France'],number,0,0.468
+"Give the on-time acceptance rate, in percent, for Italy suppliers.",ontime_pct,['Italy'],number,1,0.357
+What percentage of units due from suppliers in France were accepted on time?,ontime_pct,['France'],number,0,0.468
+"Give the on-time acceptance rate, in percent, for Switzerland suppliers.",ontime_pct,['Switzerland'],number,1,0.35
+What percentage of units due from suppliers in Greece were accepted on time?,ontime_pct,['Greece'],number,0,0.459
+"Give the on-time acceptance rate, in percent, for France suppliers.",ontime_pct,['France'],number,1,0.355
+What percentage of received units from Italy suppliers were rejected?,rejection_pct,['Italy'],number,0,0.424
+Give the rejected-unit rate for suppliers in France.,rejection_pct,['France'],number,1,0.327
+What percentage of received units from Portugal suppliers were rejected?,rejection_pct,['Portugal'],number,0,0.428
+Give the rejected-unit rate for suppliers in Austria.,rejection_pct,['Austria'],number,1,0.326
+What percentage of received units from Netherlands suppliers were rejected?,rejection_pct,['Netherlands'],number,0,0.431
+Give the rejected-unit rate for suppliers in Spain.,rejection_pct,['Spain'],number,1,0.329
+What percentage of received units from Poland suppliers were rejected?,rejection_pct,['Poland'],number,0,0.43
+Give the rejected-unit rate for suppliers in Italy.,rejection_pct,['Italy'],number,1,0.329
+What percentage of received units from Switzerland suppliers were rejected?,rejection_pct,['Switzerland'],number,0,0.431
+Give the rejected-unit rate for suppliers in Germany.,rejection_pct,['Germany'],number,1,0.331
+Which supplier in Austria has the highest rejection ratio?,worst_supplier,['Austria'],string,0,0.431
+Name the Spain supplier with the most rejected units relative to its deliveries.,worst_supplier,['Spain'],string,1,0.403
+Which supplier in Greece has the highest rejection ratio?,worst_supplier,['Greece'],string,0,0.434
+Name the France supplier with the most rejected units relative to its deliveries.,worst_supplier,['France'],string,1,0.4
+Which supplier in Germany has the highest rejection ratio?,worst_supplier,['Germany'],string,0,0.431
+Name the Italy supplier with the most rejected units relative to its deliveries.,worst_supplier,['Italy'],string,1,0.411
+Which supplier in Austria has the highest rejection ratio?,worst_supplier,['Austria'],string,0,0.431
+Name the Germany supplier with the most rejected units relative to its deliveries.,worst_supplier,['Germany'],string,1,0.407
+Which supplier in Greece has the highest rejection ratio?,worst_supplier,['Greece'],string,0,0.434
+Name the Italy supplier with the most rejected units relative to its deliveries.,worst_supplier,['Italy'],string,1,0.411
+What is the purchase price variance in EUR for the Professional Services product family?,ppv,['Professional Services'],number,0,0.417
+"How much did Hardware cost over or under standard, in euros?",ppv,['Hardware'],number,1,0.396
+What is the purchase price variance in EUR for the Professional Services product family?,ppv,['Professional Services'],number,0,0.417
+"How much did Cloud cost over or under standard, in euros?",ppv,['Cloud'],number,1,0.379
+What is the purchase price variance in EUR for the Hardware product family?,ppv,['Hardware'],number,0,0.414
+"How much did Hardware cost over or under standard, in euros?",ppv,['Hardware'],number,1,0.396
+What is the purchase price variance in EUR for the Professional Services product family?,ppv,['Professional Services'],number,0,0.417
+"How much did Professional Services cost over or under standard, in euros?",ppv,['Professional Services'],number,1,0.394
+What is the purchase price variance in EUR for the Cloud product family?,ppv,['Cloud'],number,0,0.4
+"How much did Hardware cost over or under standard, in euros?",ppv,['Hardware'],number,1,0.396
+What is the euro cost of accepted units on posted receipts at the North warehouse?,receipt_cost,['North'],number,0,0.426
+"Total the cost of accepted goods received into warehouse Central, in EUR.",receipt_cost,['Central'],number,1,0.394
+What is the euro cost of accepted units on posted receipts at the North warehouse?,receipt_cost,['North'],number,0,0.426
+"Total the cost of accepted goods received into warehouse Central, in EUR.",receipt_cost,['Central'],number,1,0.394
+What is the euro cost of accepted units on posted receipts at the Central warehouse?,receipt_cost,['Central'],number,0,0.42
+"Total the cost of accepted goods received into warehouse Central, in EUR.",receipt_cost,['Central'],number,1,0.394
+What is the euro cost of accepted units on posted receipts at the West warehouse?,receipt_cost,['West'],number,0,0.429
+"Total the cost of accepted goods received into warehouse West, in EUR.",receipt_cost,['West'],number,1,0.403
+What is the euro cost of accepted units on posted receipts at the East warehouse?,receipt_cost,['East'],number,0,0.429
+"Total the cost of accepted goods received into warehouse West, in EUR.",receipt_cost,['West'],number,1,0.403
+How many units are in reconciled stock at the South warehouse at the reference time?,recon_stock,['South'],integer,0,0.489
+Give the reconciled stock quantity for warehouse East at the reference date.,recon_stock,['East'],integer,1,0.378
+How many units are in reconciled stock at the South warehouse at the reference time?,recon_stock,['South'],integer,0,0.489
+Give the reconciled stock quantity for warehouse Central at the reference date.,recon_stock,['Central'],integer,1,0.374
+How many units are in reconciled stock at the South warehouse at the reference time?,recon_stock,['South'],integer,0,0.489
+Give the reconciled stock quantity for warehouse South at the reference date.,recon_stock,['South'],integer,1,0.376
+How many units are in reconciled stock at the West warehouse at the reference time?,recon_stock,['West'],integer,0,0.484
+Give the reconciled stock quantity for warehouse South at the reference date.,recon_stock,['South'],integer,1,0.376
+How many units are in reconciled stock at the West warehouse at the reference time?,recon_stock,['West'],integer,0,0.484
+Give the reconciled stock quantity for warehouse North at the reference date.,recon_stock,['North'],integer,1,0.376
+What is the standard-cost value in EUR of reconciled stock in the East warehouse?,stock_value,['East'],number,0,0.411
+How much is the East warehouse's reconciled stock worth at standard cost?,stock_value,['East'],number,1,0.408
+What is the standard-cost value in EUR of reconciled stock in the North warehouse?,stock_value,['North'],number,0,0.39
+How much is the East warehouse's reconciled stock worth at standard cost?,stock_value,['East'],number,1,0.408
+What is the standard-cost value in EUR of reconciled stock in the East warehouse?,stock_value,['East'],number,0,0.411
+How much is the South warehouse's reconciled stock worth at standard cost?,stock_value,['South'],number,1,0.412
+What is the standard-cost value in EUR of reconciled stock in the North warehouse?,stock_value,['North'],number,0,0.39
+How much is the Central warehouse's reconciled stock worth at standard cost?,stock_value,['Central'],number,1,0.436
+What is the standard-cost value in EUR of reconciled stock in the East warehouse?,stock_value,['East'],number,0,0.411
+How much is the Central warehouse's reconciled stock worth at standard cost?,stock_value,['Central'],number,1,0.436
+How many product and warehouse pairs at Central are below their reorder point?,below_reorder_count,['Central'],integer,0,0.478
+Count the stock lines at North whose quantity is under the reorder level.,below_reorder_count,['North'],integer,1,0.353
+How many product and warehouse pairs at South are below their reorder point?,below_reorder_count,['South'],integer,0,0.467
+Count the stock lines at East whose quantity is under the reorder level.,below_reorder_count,['East'],integer,1,0.347
+How many product and warehouse pairs at Central are below their reorder point?,below_reorder_count,['Central'],integer,0,0.478
+Count the stock lines at Central whose quantity is under the reorder level.,below_reorder_count,['Central'],integer,1,0.369
+How many product and warehouse pairs at South are below their reorder point?,below_reorder_count,['South'],integer,0,0.467
+Count the stock lines at West whose quantity is under the reorder level.,below_reorder_count,['West'],integer,1,0.337
+How many product and warehouse pairs at North are below their reorder point?,below_reorder_count,['North'],integer,0,0.452
+Count the stock lines at West whose quantity is under the reorder level.,below_reorder_count,['West'],integer,1,0.337
+What is the total suggested replenishment quantity for the East warehouse?,reorder_units,['East'],integer,0,0.469
+How many units should be reordered in total for North?,reorder_units,['North'],integer,1,0.389
+What is the total suggested replenishment quantity for the Central warehouse?,reorder_units,['Central'],integer,0,0.407
+How many units should be reordered in total for South?,reorder_units,['South'],integer,1,0.389
+What is the total suggested replenishment quantity for the East warehouse?,reorder_units,['East'],integer,0,0.469
+How many units should be reordered in total for East?,reorder_units,['East'],integer,1,0.419
+What is the total suggested replenishment quantity for the North warehouse?,reorder_units,['North'],integer,0,0.456
+How many units should be reordered in total for South?,reorder_units,['South'],integer,1,0.389
+What is the total suggested replenishment quantity for the Central warehouse?,reorder_units,['Central'],integer,0,0.407
+How many units should be reordered in total for North?,reorder_units,['North'],integer,1,0.389
+What percentage of returned units with the reason 'defect' can be put back into stock?,restockable_pct_reason,['defect'],number,0,0.4
+"For returns citing 'defect', give the share of units that are restockable, in percent.",restockable_pct_reason,['defect'],number,1,0.348
+What percentage of returned units with the reason 'late_delivery' can be put back into stock?,restockable_pct_reason,['late_delivery'],number,0,0.389
+"For returns citing 'defect', give the share of units that are restockable, in percent.",restockable_pct_reason,['defect'],number,1,0.348
+What percentage of returned units with the reason 'customer_return' can be put back into stock?,restockable_pct_reason,['customer_return'],number,0,0.482
+"For returns citing 'billing_error', give the share of units that are restockable, in percent.",restockable_pct_reason,['billing_error'],number,1,0.346
+What percentage of returned units with the reason 'defect' can be put back into stock?,restockable_pct_reason,['defect'],number,0,0.4
+"For returns citing 'customer_return', give the share of units that are restockable, in percent.",restockable_pct_reason,['customer_return'],number,1,0.381
+What percentage of returned units with the reason 'defect' can be put back into stock?,restockable_pct_reason,['defect'],number,0,0.4
+"For returns citing 'customer_return', give the share of units that are restockable, in percent.",restockable_pct_reason,['customer_return'],number,1,0.381
+What is the total recovery value in EUR of inspected returns for the Accessory category?,recovery_category,['Accessory'],number,0,0.426
+"How much value can be recovered from inspected Service returns, in euros?",recovery_category,['Service'],number,1,0.358
+What is the total recovery value in EUR of inspected returns for the Software category?,recovery_category,['Software'],number,0,0.437
+"How much value can be recovered from inspected Appliance returns, in euros?",recovery_category,['Appliance'],number,1,0.35
+What is the total recovery value in EUR of inspected returns for the Tablet category?,recovery_category,['Tablet'],number,0,0.441
+"How much value can be recovered from inspected Phone returns, in euros?",recovery_category,['Phone'],number,1,0.344
+What is the total recovery value in EUR of inspected returns for the Networking category?,recovery_category,['Networking'],number,0,0.452
+"How much value can be recovered from inspected Networking returns, in euros?",recovery_category,['Networking'],number,1,0.372
+What is the total recovery value in EUR of inspected returns for the Accessory category?,recovery_category,['Accessory'],number,0,0.426
+"How much value can be recovered from inspected Appliance returns, in euros?",recovery_category,['Appliance'],number,1,0.35

@@ -1,0 +1,256 @@
+% Project 5 (team SK) report. Adapted from the organisers' starter template.
+% Remaining [TODO] items need team input or organiser confirmation.
+% Do not add challenge data, answer CSVs, reference answers or organiser files.
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,booktabs,tabularx,enumitem}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+\setlist{nosep,leftmargin=*}
+\newcommand{\todo}[1]{\textit{[TODO: #1]}}
+
+\title{Model-routed, deterministic answering of business questions over linked enterprise tables\\
+  \large Team SK\textsuperscript{2} --- SIXT + TUM Hackathon 2026 --- Project 5}
+\author{Karen Khudaverdian, Said Sarahna, Kyrylo Liashenko\\
+  \small \todo{Actual affiliations and contact email}}
+\date{\todo{Manuscript date}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We describe a workflow that answers 200 business questions over 37 linked
+enterprise tables. A small open-weight language model (Qwen2.5-Coder-7B-Instruct,
+7.6 billion parameters, run locally on CPU) chooses which of 50 deterministic
+calculation functions answers each question. Python code computes every number:
+pandas for the company-analytics questions, an exact mixed-integer programme
+(CBC) for the fulfilment optimisation questions, and an event-by-event simulator
+for the flow questions. The model never writes an answer. A validator checks
+each routing against the answer type the question asks for, allows one retry,
+and flags anything it cannot route. On the 150 company questions, the model's first-attempt routing selected the correct function for 149 questions. The validator flagged the remaining question, which is answered by hand routing, and all 150 final answers match the hand-routed answers.
+All 15 optimisation cases solve to proven optimality, and every plan is re-costed
+and checked independently. Official accuracy was not yet available when this
+report was written. The main limitation is that correctness rests on internal
+checks and a small set of practice examples, not on a full answer key.
+\end{abstract}
+
+\section{Task and data}
+We study Project 5 of the SIXT + TUM Hackathon. Each question must be answered
+with one scalar value in a two-column CSV. The challenge uses the Enterprise
+Data Agent Challenge 2026 dataset~\cite{tzachristas2026enterprise}. The package
+contains 37 CSV data tables, 200 scored questions and 10 unscored practice
+examples in the initial stage. The final stage was not released when this
+report was written.
+
+The questions fall into three groups. Questions P001--P150 ask for analytics
+over customers, orders, refunds, tickets, marketing and suppliers, after applying
+the supplied business rules. Questions P151--P180 ask for the cost of an
+optimal fulfilment plan, and the change in cost under specified edits. Questions
+P181--P200 ask for the outcome of a stateful, event-by-event fulfilment
+simulation, and of a what-if edit to it. The business rules include identity
+resolution for customers, eligibility filters, currency conversion and refund
+allocation. All work used only the supplied public stage.
+
+\subsection{Dataset identification}
+\begin{description}[style=nextline]
+  \item[Initial/public stage]
+    Archive: \nolinkurl{problem7_student_start.zip}; SHA-256:
+    \nolinkurl{dcab020fd06195bcb60c92a61ed450296e2fed81f401ad4aeb5aa98b5cbcf7e0};
+    access date: 2026-11-13; dataset version: 7.0.0; event content version:
+    \nolinkurl{p5-local-v4-bonus40}; event policy version:
+    \nolinkurl{problem7-65-35-plus40-v2}. All 69 manifest entries were checked
+    against their recorded hashes.
+  \item[Final stage]
+    Not released when this report was written. \todo{Archive, hash, access date and
+    versions, if and when issued.}
+\end{description}
+
+\section{Method}
+The workflow turns a question into an answer in five steps.
+
+\begin{enumerate}
+  \item \textbf{Routing (model).} The question text is given to a local
+    7.6B-parameter model with a catalogue of the 50 calculation functions. Each
+    function has a plain-language description and an argument list. The model
+    returns one JSON object naming the function and its arguments.
+  \item \textbf{Adaptation (code).} Format-only fixes: a single issue type
+    becomes a list, ``all families'' becomes a null argument, and numeric strings
+    become numbers. The adapters never change meaning.
+  \item \textbf{Validation (code).} The function must exist, take the right
+    number of arguments, and return the answer type the question asks for. The
+    expected type is taken from the question file.
+  \item \textbf{Retry or flag (code).} A rejected routing gets one retry, with the
+    required type stated. A routing that still fails is flagged, and the
+    hand-written routing is used instead. Flags are recorded in the output.
+  \item \textbf{Calculation (code).} The chosen function computes the answer from
+    the tables. Every number comes from deterministic code.
+\end{enumerate}
+
+For the optimisation questions, the workflow is fully deterministic: a
+mixed-integer programme with binary variables for each job-option choice, solved
+to proven optimality by the CBC solver. The counterfactual applies all specified
+edits simultaneously, then re-solves. For the flow questions, a discrete-event
+simulator processes events in a fixed order, with stock reservations allocated
+in queue order. The simulator enforces a conservation identity at the end of
+every run.
+
+Model use is limited to routing. We chose this design because a language model
+is unreliable at arithmetic over large tables, while choosing among a small set
+of tested functions is a task it can do well. Routing is also cheap to check
+against an independent hand routing.
+
+\subsection{Implementation and reproducibility}
+Language: Python 3.14. Dependencies are pinned in \texttt{requirements.txt}:
+pandas 2.3.3, numpy 2.5.4, duckdb 1.4.5 (independent SQL cross-check), PuLP 2.9.0
+(CBC solver), pytest 8.4.2, and llama-cpp-python 0.3.16 (local model runtime).
+The model is Qwen2.5-Coder-7B-Instruct, quantised to Q4\_K\_M GGUF, from the
+Hugging Face repository \nolinkurl{Qwen/Qwen2.5-Coder-7B-Instruct-GGUF} at revision
+\nolinkurl{13fb94bfda8c8cf22497dc57b78f391a9acb426a}. Decoding uses temperature
+0 and a fixed seed of 0. The runtime is CPU-only, with 16 threads.
+
+Setup and run: \texttt{bash setup.sh} creates the environment, installs the
+pinned dependencies and runs the test suite. The routing pipeline is run with
+\texttt{python src/pipeline\_company.py}, and the optimiser and flow simulator
+with \texttt{python src/optimiser.py} and \texttt{python src/flow\_sim.py}. The
+organiser package must be placed in the data folder, which is excluded from the
+repository. The model file is not included and must be downloaded first.
+
+Code availability: \todo{Repository link, if authorised for public sharing.
+The repository must contain no challenge data, answer CSVs or credentials.}
+
+\section{Evaluation and results}
+Our checks are internal. Organiser feedback was not yet available.
+
+\begin{itemize}
+  \item \textbf{Toy and practice examples.} The three toy examples and the ten
+    practice examples are reproduced exactly.
+  \item \textbf{Independent SQL.} A separate DuckDB SQL implementation agrees with
+    the pandas implementation on the 13 company questions checked.
+  \item \textbf{Routing.} On the 150 company questions, the model's first attempt chose the correct function for 149 (99.3\%). Exact matches, including argument format, were 145 of 150. The four other mismatches differ only in format, and the adapters correct them. The one wrong choice was a count question routed to a name lookup. The validator rejected it, the retry was also rejected, and the question is flagged and answered by hand routing. The final answers for all 150 questions match the hand-routed answers.
+\item \textbf{Optimisation.} All 15 cases solve to proven optimality. Each plan
+    is re-costed independently and checked against stock, dispatch-capacity and
+    supplier-limit constraints. The check passed for every case.
+  \item \textbf{Flow simulation.} The conservation identity (opening stock plus
+    receipts plus restocked units equals free plus reserved plus dispatched units)
+    holds in all 20 runs, baseline and what-if.
+  \item \textbf{Submission structure.} The organisers' structure checker reports
+    the answer file as well formed: 200 rows, all answers filled.
+\end{itemize}
+
+\begin{table}[htbp]
+\centering
+\caption{Measured results for the public stage. ``Not available'' means the
+organisers have not yet reported the value.}
+\begin{tabularx}{\linewidth}{@{}Xll@{}}
+\toprule
+Measure & Public stage & Final stage \\
+\midrule
+Official correct answers (out of 200) & not available & not released \\
+Official accuracy (\%) & not available & not released \\
+Elapsed model time (301 calls) & 873 s total, about 3 s per call & not released \\
+Model tokens used (prompt / completion) & 423,470 / 5,013 & not released \\
+Measured model cost & no API cost; local compute only & not released \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Hardware: 16 CPU cores, 30 GB RAM, no GPU, Linux. Timing covers the model calls only. We did not measure the time taken by the calculations.
+
+Regression tests (33 passing, 1 opt-in) cover the validator, the adapters, the
+optimiser and flow reproductions, and the structure of the answer file. The
+opt-in test reruns the model on all 150 questions and requires at least 148
+correct routings on the first attempt.
+
+\section{Model-use declaration}
+\textbf{Complete for every team.} This declaration matches
+\texttt{MODEL\_DECLARATION.csv}.
+
+\subsection*{Model 1: Qwen2.5-Coder-7B-Instruct (GGUF Q4\_K\_M)}
+\begin{description}[style=nextline]
+  \item[Identity and size] Publisher: Qwen (Alibaba Cloud), Apache-2.0 licence;
+    exact revision: \nolinkurl{13fb94bfda8c8cf22497dc57b78f391a9acb426a}; total
+    parameters: 7,615,616,512 (7.6 billion, dense, no mixture-of-experts);
+    parameter-count source: Hugging Face model-card metadata for
+    \nolinkurl{Qwen/Qwen2.5-Coder-7B-Instruct}.
+  \item[Role and stage] Routing only, public stage. Chooses one calculation
+    function and its arguments for each of the 150 company questions. It
+    contributes to the answers through this routing choice, which the validator
+    checks. It does not produce any numeric answer and is not used for the
+    optimisation or flow questions. Not used in the final stage, which was not
+    released.
+  \item[Configuration] llama-cpp-python 0.3.16, CPU, 16 threads, Q4\_K\_M
+    quantisation (quantisation does not change the parameter count),
+    temperature 0, seed 0, maximum 120 output tokens. The prompt lists the
+    function catalogue and three examples, using countries and regions that do not appear in the question set.
+  \item[Usage and evidence] 301 logged calls (150 routing-evaluation calls and
+    pipeline run with one retry), with prompt and output tokens and timings. The
+    full log holds question text, so it is kept private. Evidence files in the
+    \texttt{evidence/} folder: the SHA-256 of the exact model file used, the
+    repository metadata giving the parameter count, a sanitised per-call usage log
+    (question identifiers, token counts, timings and the function chosen; no question
+    text or raw output) and a usage summary.
+\end{description}
+
+\subsection*{Model 2: Claude Haiku 5.5 (coding assistant)}
+\begin{description}[style=nextline]
+  \item[Identity and size] Publisher: Anthropic; model ID \texttt{claude-haiku-5-5};
+    total parameters: \textbf{not disclosed}; parameter-count source: none
+    available to the team.
+  \item[Role and stage] Used during development to write code, tests and this
+    documentation, during the public stage. It did not route, compute or check any answer
+    at run time. \todo{Confirm this scope with the team.}
+  \item[Configuration] Hosted, accessed through Claude Code.
+  \item[Usage and evidence] Not measured. No usage logs are held for this model.
+\end{description}
+
+\subsection*{Small-model bonus declaration}
+\begin{itemize}
+  \item Bonus claimed for the Hackathon workflow: no. The team makes no bonus claim.
+    The model usage is stated below so that the organisers can assess it.
+  \item Published total parameter counts: Model 1, 7,615,616,512; Model 2, not
+    disclosed by its publisher.
+  \item Role of Model 1: routing. It selects one calculation function and its
+    arguments for each company question. Its choices are checked against an
+    independent hand routing.
+  \item Size and usage evidence: listed in the \texttt{evidence/} folder and its index.
+  \item Organiser verification: not requested, as no bonus is claimed.
+\end{itemize}
+
+\section{Limitations and business relevance}
+Correctness is verified only by internal checks. We have no answer key for the public stage beyond the 3 toy and 10 practice examples. The routing was measured on the
+public questions only, so its accuracy on unseen questions is unknown. The model
+can route a count question to a name lookup, which the validator must catch; a
+different question set could produce failures the validator misses. The
+validator checks only the answer type, not value ranges.
+
+The optimiser and simulator depend on the stated rules being interpreted
+correctly. We checked four interpretation choices against the rule text. Three were confirmed, and a tie-break in one question family was corrected. Other readings could change individual answers.
+
+For a SIXT-like setting, the design separates the question-understanding step,
+which a language model can handle, from the arithmetic and optimisation, which
+deterministic code must do. This makes each answer traceable to a checked
+calculation. The approach would need validation on real company data before any
+business use, which we have not done.
+
+\section*{Author contributions and acknowledgements}
+\todo{State each student's contribution. Acknowledge the use of Claude Haiku 5.5
+as a coding assistant, as declared above. Cite the frameworks listed under
+Implementation.}
+
+\section*{Data and code availability}
+The challenge data were supplied separately for the Hackathon. This report does
+not redistribute the datasets, answer CSVs, reference answers, private evaluation
+details or organiser material.
+\todo{State the actual availability of the method code, with an authorised link
+if one is used.}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
